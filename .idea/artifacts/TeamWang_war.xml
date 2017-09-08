@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TeamWang:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="TeamWang.war">
+      <element id="artifact" artifact-name="TeamWang:war exploded" />
+    </root>
+  </artifact>
+</component>
