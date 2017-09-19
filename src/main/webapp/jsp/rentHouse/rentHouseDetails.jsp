@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>租房房源详情</title>
-
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
     <link rel="stylesheet" href="../../css/imgbox.css"/>
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/jquery.imgbox.pack.js"></script>
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="header-main">
             <div class="logo">
-                <a href="index.html"> <img src="../../images/logo.png" alt="" title=""/> </a>
+                <a href="../homePage.jsp"> <img src="../../images/logo.png" alt="" title=""/> </a>
             </div>
             <div class="head-right">
                 <div class="top-nav">
@@ -78,13 +78,19 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
+                <%--用户头像--%>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form>
-                            <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"> </span>
-                        </form>
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="../userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -121,12 +127,12 @@
 //                        BuildingImage bimage=Bimage.get(0);
             %>
             <div class="blog-top">
-                <h3><%=rentHouse.getRentHouseName()%></h3>
+                <h3><%=rentHouse.getRentHouseName()%> &nbsp;&nbsp;<a href="../DoOperation/doCollectionRentHouse.jsp?id=<%=rentHouse.getRentHouseId()%>" style="color: red">收藏</a> &nbsp;&nbsp;<a href="applyRentHouse.jsp?id=<%=rentHouse.getRentHouseId()%>" style="color: red">申请楼盘</a></h3>
                 <%--<p><%=Build.getBuildingCharacteristic()%></p>--%>
             </div>
             <div class="col-md-9 blog-left">
                 <div class="blog-grids">
-                    <a><img src="../../images/<%=rentHouseImage.getRentHouseImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
+                    <a><img src="<%=rentHouseImage.getRentHouseImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
                     <div class="blog-detail">
                         <a><h3>房源详情</h3></a>
                         <%--<h4><span class="blog-clr">房源描述</span></h4>--%>
@@ -143,8 +149,8 @@
                                 <%
                                     for (int n=0;img<rentHouseImages.size()&&n<4;img++){
                                 %>
-                                <a class="zoom-3"  href="../../images/<%=rentHouseImages.get(img).getRentHouseImageName()%>">
-                                    <img src="../../images/<%=rentHouseImages.get(img).getRentHouseImageName()%>" width="600px" height="600px"/></a>
+                                <a class="zoom-3"  href="<%=rentHouseImages.get(img).getRentHouseImageName()%>">
+                                    <img src="<%=rentHouseImages.get(img).getRentHouseImageName()%>" width="600px" height="600px"/></a>
                                 <% n++;}%>
                                 <div class="clearfix"> </div>
                             </div>
@@ -154,10 +160,7 @@
                             <hr/>
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
             <div class="col-md-3 blog-right">
                 <div class="blog-cate">
@@ -174,25 +177,6 @@
                         <li><a >房源地址：<%=rentHouse.getRentHouseAddress()%></a ></li>
                     </ul>
                 </div>
-                <%--<div class="blog-post">--%>
-                    <%--<h3>房源详情图</h3>--%>
-                    <%--<%--%>
-                        <%--for (int img=0;img<rentHouseImages.size()&&img<12;){--%>
-                    <%--%>--%>
-                    <%--<div class="ftr-gd4-img">--%>
-                        <%--<%--%>
-                            <%--for (int n=0;img<rentHouseImages.size()&&n<4;img++){--%>
-                        <%--%>--%>
-                        <%--<a class="zoom-3"  href="../../images/<%=rentHouseImages.get(img).getRentHouseImageName()%>">--%>
-                            <%--<img src="../../images/<%=rentHouseImages.get(img).getRentHouseImageName()%>" width="60px" height="60px"/></a>--%>
-                        <%--<% n++;}%>--%>
-                        <%--<div class="clearfix"> </div>--%>
-                    <%--</div>--%>
-                    <%--<%--%>
-                        <%--}--%>
-                    <%--%>--%>
-                    <%--<hr/>--%>
-                <%--</div>--%>
             </div>
             <div class="clearfix"> </div>
             <%
@@ -237,7 +221,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -261,7 +245,7 @@
                     <%
                         for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>

@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>登录成功</title>
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
 </head>
 <body>
 <%

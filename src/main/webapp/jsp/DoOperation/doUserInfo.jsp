@@ -14,37 +14,25 @@
 <jsp:setProperty name="userCreateInfo" property="*" />
 
 <%
+    if (session.getAttribute("UserId")!=null){
+        userCreateInfo.setUserId(session.getAttribute("UserId").hashCode());
+    }
     if (null==userCreateInfo.getUserNickname()||userCreateInfo.getUserNickname().length()<=0)
     {
-        session.setAttribute("Info","注册失败，有必填字段为空，请重试.JSP363");
-        request.getRequestDispatcher("test.jsp").forward(request,response);
+        session.setAttribute("Info","修改失败，有必填字段为空，请重试.");
+        response.sendRedirect("../userCenter/modifyuserInfo.jsp");
+//        request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
     }else{
-        String  recheck = usersDao.usersCreateInfo(userCreateInfo);
-        if (null!=recheck&&recheck.length()>0){
-            if ("rename".equals(recheck))
-            {
-                session.setAttribute("Info","用户名不存在，请重新输入用户名22");
-                request.getRequestDispatcher("test.jsp").forward(request,response);
-            }
-            else if ("success".equals(recheck))
-            {
-                session.setAttribute("Info","注册成功，请登录");
-                request.getRequestDispatcher("test.jsp").forward(request,response);
-            }else if ("cc".equals(recheck)){
-                session.setAttribute("Info","注册失败，请重试");
-                request.getRequestDispatcher("test.jsp").forward(request,response);
-            }
-            else if ("dd".equals(recheck)){
-                session.setAttribute("Info","注册失败，有必填字段为空，请重试");
-                request.getRequestDispatcher("test.jsp").forward(request,response);
-            }else if ("weizhi".equals(recheck)){
-                session.setAttribute("Info","判断未知");
-                request.getRequestDispatcher("registerInfo.jsp").forward(request,response);
-            }
+
+        if (usersDao.createUserInfoSql(userCreateInfo)){
+            session.setAttribute("Info","修改成功");
+            response.sendRedirect("../userCenter/modifyuserInfo.jsp");
+//            request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
         }
         else{
-            session.setAttribute("Info","未知错误，请重试");
-            request.getRequestDispatcher("test.jsp").forward(request,response);
+            session.setAttribute("Info","修改失败，请重试");
+            response.sendRedirect("../userCenter/modifyuserInfo.jsp");
+//            request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
         }
     }
 %>

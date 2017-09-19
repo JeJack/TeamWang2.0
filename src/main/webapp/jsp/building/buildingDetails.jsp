@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>楼盘详情</title>
-
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
     <link rel="stylesheet" href="../../css/imgbox.css"/>
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/jquery.imgbox.pack.js"></script>
@@ -63,7 +63,7 @@
                     <ul class="res">
                         <li><a href="../homePage.jsp">首页</a></li>
                         <li><a class="active" href="../building/building.jsp">楼盘</a></li>
-                        <li><a href="rentHouse.jsp">租房</a></li>
+                        <li><a href="../rentHouse/rentHouse.jsp">租房</a></li>
                         <li><a href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
                         <div class="clearfix"> </div>
@@ -78,13 +78,19 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
+                <%--用户头像--%>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form>
-                            <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"> </span>
-                        </form>
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="../userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -116,12 +122,12 @@
                         BuildingImage bimage=Bimage.get(0);
             %>
             <div class="blog-top">
-                <h3><%=Build.getBuildingName()%></h3>
+                <h3><%=Build.getBuildingName()%> &nbsp;&nbsp;<a href="../DoOperation/doCollectionBuilding.jsp?id=<%=Build.getBuildingId()%>" style="color: rgba(208,50,32,0.8)">收藏</a> &nbsp;&nbsp;<a href="applyBuilding.jsp?id=<%=Build.getBuildingId()%>" style="color: red">申请楼盘</a></h3>
                 <p><%=Build.getBuildingCharacteristic()%></p>
             </div>
             <div class="col-md-9 blog-left">
                 <div class="blog-grids">
-                    <a><img src="../../images/<%=bimage.getBuildingImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
+                    <a><img src="<%=bimage.getBuildingImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
                     <div class="blog-detail">
                         <a><h3>配套信息</h3></a>
                         <h4><span class="blog-clr">交通状况</span></h4>
@@ -161,7 +167,8 @@
                         <li><a >小区总户数：  <%=Build.getBuildingHousehold()%>户</a></li>
                         <li><a >咨询电话： <%=Build.getBuildingPhone()%></a></li>
                         <li><a >物业公司：<%=Build.getBuildingPropertyCompany()%></a></li>
-                        <li><a >登记售卖时间：  <%=Build.getBuildingTimeHanded()%></a></li>
+                        <li><a >开盘时间时间：  <%=Build.getBuildingTimeHanded()%></a></li>
+                        <li><a >登记售卖时间：  <%=Build.getBuildingPublishTime()%></a></li>
                         <li><a >房源地址：<%=Build.getBuildingAddress()%></a ></li>
                     </ul>
                 </div>
@@ -174,7 +181,7 @@
                         <%
                             for (int n=0;img<Bimage.size()&&n<4;img++){
                         %>
-                        <a class="zoom-3"  href="../../images/<%=Bimage.get(img).getBuildingImageName()%>"><img src="../../images/<%=Bimage.get(img).getBuildingImageName()%>" width="60px" height="60px"/></a>
+                        <a class="zoom-3"  href="<%=Bimage.get(img).getBuildingImageName()%>"><img src="<%=Bimage.get(img).getBuildingImageName()%>" width="60px" height="60px"/></a>
                         <% n++;}%>
                         <div class="clearfix"> </div>
                     </div>
@@ -227,7 +234,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -251,7 +258,7 @@
                     <%
                         for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>

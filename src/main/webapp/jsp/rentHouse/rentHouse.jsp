@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>租房</title>
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
     <%--搜索条件筛选--%>
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
@@ -30,6 +31,10 @@
     <!--Google Fonts-->
     <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/move-top.js"></script>
@@ -51,7 +56,7 @@
     <div class="container">
         <div class="header-main">
             <div class="logo">
-                <a href="index.html"> <img src="../../images/logo.png" alt="" title=""/> </a>
+                <a href="../homePage.jsp"> <img src="../../images/logo.png" alt="" title=""/> </a>
             </div>
             <div class="head-right">
                 <div class="top-nav">
@@ -74,13 +79,19 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
+                <%--用户头像--%>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form>
-                            <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"> </span>
-                        </form>
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="../userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -99,49 +110,148 @@
 <!--header end here-->
 <!--renthouse start here-->
 
-<div class="demo">
-    <div class="sx">
-        <span>分类1：</span>
-        <a rel="1" class="sx_child" name="aaa" href="javascript:;">阿迪达斯</a>
-        <a rel="2" class="sx_child" name="aaa" href="javascript:;">李宁</a>
-        <a rel="3" class="sx_child" name="aaa" href="javascript:;">耐克</a>
-        <a rel="4" class="sx_child" name="aaa" href="javascript:;">乔丹</a>
-    </div>
-    <div class="sx">
-        <span>分类2：</span>
-        <a rel="1" class="sx_child" name="bbb" href="javascript:;">福建</a>
-        <a rel="2" class="sx_child" name="bbb" href="javascript:;">广州</a>
-        <a rel="3" class="sx_child" name="bbb" href="javascript:;">上海</a>
-        <a rel="4" class="sx_child" name="bbb" href="javascript:;">北京</a>
-    </div>
-    <div class="sx">
-        <span>分类3：</span>
-        <a rel="1" class="sx_child" name="ccc" href="javascript:;">红色</a>
-        <a rel="2" class="sx_child" name="ccc" href="javascript:;">绿色</a>
-        <a rel="3" class="sx_child" name="ccc" href="javascript:;">黑色</a>
-        <a rel="4" class="sx_child" name="ccc" href="javascript:;">白色</a>
-    </div>
-    <div class="sx">
-        <span>分类4：</span>
-        <a rel="1" class="sx_child" name="ddd" href="javascript:;">100</a>
-        <a rel="2" class="sx_child" name="ddd" href="javascript:;">300</a>
-        <a rel="3" class="sx_child" name="ddd" href="javascript:;">400</a>
-        <a rel="4" class="sx_child" name="ddd" href="javascript:;">600</a>
-    </div>
-    <div class="zj">
-        <span>删选结果：</span>
-        <p class="qcqb">清除全部</p>
-    </div>
-</div>
-<script type="text/javascript" src="../../js/script.js"></script>
-<script type="text/javascript">
-    $('.sx').sx({
-        nuv:".zj",//筛选结果
-        zi:"sx_child",//所有筛选范围内的子类
-        qingchu:'.qcqb',//清除全部
-        over:'on'//选中状态样式名称
-    });
-</script>
+
+<nav id="cbp-hrmenu" class="cbp-hrmenu" style=" margin-top: 10px" >
+    <ul>
+        <li>
+            <a href="#">客厅</a>
+            <div class="cbp-hrsub" style="z-index: 1000">
+                <div class="cbp-hrsub-inner">
+                    <div>
+                        <h4>&古典系&</h4>
+                        <ul>
+                            <li><a href="#">新古典风格</a></li>
+                            <li><a href="#">欧美风情</a></li>
+                            <li><a href="#">田园风格</a></li>
+                            <li><a href="#">中式古典</a></li>
+                            <li><a href="#">日韩风格</a></li>
+                            <li><a href="#">西式古典</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>&简约派&</h4>
+                        <ul>
+                            <li><a href="#">东南亚风格</a></li>
+                            <li><a href="#">地中海风格</a></li>
+                            <li><a href="#">简欧风格</a></li>
+                            <li><a href="#">现代简约</a></li>
+                            <li><a href="#">中式风格</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>其他</h4>
+                        <ul>
+                            <li><a href="#">其他</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /cbp-hrsub-inner -->
+            </div><!-- /cbp-hrsub -->
+        </li>
+        <li>
+            <a href="#">厨房</a>
+            <div class="cbp-hrsub" style="z-index: 1000">
+                <div class="cbp-hrsub-inner">
+                    <div>
+                        <h4>&古典系&</h4>
+                        <ul>
+                            <li><a href="#">新古典风格</a></li>
+                            <li><a href="#">欧美风情</a></li>
+                            <li><a href="#">田园风格</a></li>
+                            <li><a href="#">中式古典</a></li>
+                            <li><a href="#">日韩风格</a></li>
+                            <li><a href="#">西式古典</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>&简约派&</h4>
+                        <ul>
+                            <li><a href="#">东南亚风格</a></li>
+                            <li><a href="#">地中海风格</a></li>
+                            <li><a href="#">简欧风格</a></li>
+                            <li><a href="#">现代简约</a></li>
+                            <li><a href="#">中式风格</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>其他</h4>
+                        <ul>
+                            <li><a href="#">其他</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /cbp-hrsub-inner -->
+            </div><!-- /cbp-hrsub -->
+        </li>
+        <li>
+            <a href="#">卧室</a>
+            <div class="cbp-hrsub" style="z-index: 1000">
+                <div class="cbp-hrsub-inner">
+                    <div>
+                        <h4>&古典系&</h4>
+                        <ul>
+                            <li><a href="#">新古典风格</a></li>
+                            <li><a href="#">欧美风情</a></li>
+                            <li><a href="#">田园风格</a></li>
+                            <li><a href="#">中式古典</a></li>
+                            <li><a href="#">日韩风格</a></li>
+                            <li><a href="#">西式古典</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>&简约派&</h4>
+                        <ul>
+                            <li><a href="#">东南亚风格</a></li>
+                            <li><a href="#">地中海风格</a></li>
+                            <li><a href="#">简欧风格</a></li>
+                            <li><a href="#">现代简约</a></li>
+                            <li><a href="#">中式风格</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>其他</h4>
+                        <ul>
+                            <li><a href="#">其他</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /cbp-hrsub-inner -->
+            </div><!-- /cbp-hrsub -->
+        </li>
+        <li>
+            <a href="#">卫生间</a>
+            <div class="cbp-hrsub" style="z-index: 1000">
+                <div class="cbp-hrsub-inner">
+                    <div>
+                        <h4>&古典系&</h4>
+                        <ul>
+                            <li><a href="#">新古典风格</a></li>
+                            <li><a href="#">欧美风情</a></li>
+                            <li><a href="#">田园风格</a></li>
+                            <li><a href="#">中式古典</a></li>
+                            <li><a href="#">日韩风格</a></li>
+                            <li><a href="#">西式古典</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>&简约派&</h4>
+                        <ul>
+                            <li><a href="#">东南亚风格</a></li>
+                            <li><a href="#">地中海风格</a></li>
+                            <li><a href="#">简欧风格</a></li>
+                            <li><a href="#">现代简约</a></li>
+                            <li><a href="#">中式风格</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>其他</h4>
+                        <ul>
+                            <li><a href="#">其他</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /cbp-hrsub-inner -->
+            </div><!-- /cbp-hrsub -->
+        </li>
+    </ul>
+</nav>
+
 <!--renthouse end here-->
 
 <!--renthouse_info start here-->
@@ -174,7 +284,7 @@
                     %>
                     <div class="col-sm-6 col-md-4 ser">
                         <div class="thumbnail">
-                            <a href="rentHouseDetails.jsp?id=<%=RHouse.getRentHouseId()%>"><img src="../../images/<%=rhimage.getRentHouseImageName()%>" alt="图片无法显示"/></a>
+                            <a href="rentHouseDetails.jsp?id=<%=RHouse.getRentHouseId()%>"><img src="<%=rhimage.getRentHouseImageName()%>" alt="图片无法显示"/></a>
                             <div class="caption">
                                 <a> <h3><%=RHouse.getRentHouseName() %></h3></a>
                                 <p><%=RHouse.getRentHousePrice()%>元/月</p>
@@ -232,7 +342,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -256,7 +366,7 @@
                     <%
                         for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>
@@ -278,7 +388,7 @@
                         <li><a href="../homePage.jsp">首页</a></li>
                         <li><a href="../building/building.jsp">楼盘</a></li>
                         <li><a href="rentHouse.jsp">租房</a></li>
-                        <li><a href="redecorated.jsp">装修</a></li>
+                        <li><a href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
                     </ul>
                 </div>
@@ -287,6 +397,11 @@
     </div>
 </div>
 <!--footer end here-->
-
+<script type="text/javascript" src="../../js/cbpHorizontalMenu.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        cbpHorizontalMenu.init();
+    });
+</script>
 </body>
 </html>

@@ -9,8 +9,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
     <title>楼盘</title>
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
     <%--搜索条件筛选--%>
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
@@ -30,6 +32,10 @@
     <!--Google Fonts-->
     <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/move-top.js"></script>
@@ -51,7 +57,7 @@
     <div class="container">
         <div class="header-main">
             <div class="logo">
-                <a href="index.html"> <img src="../../images/logo.png" alt="" title=""/> </a>
+                <a href="../homePage.jsp"> <img src="../../images/logo.png" alt="" title=""/> </a>
             </div>
             <div class="head-right">
                 <div class="top-nav">
@@ -74,13 +80,19 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
+                <%--用户头像--%>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form>
-                            <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"> </span>
-                        </form>
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="../userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -188,7 +200,7 @@
                     %>
                     <div class="col-sm-6 col-md-4 ser">
                         <div class="thumbnail">
-                            <a href="buildingDetails.jsp?id=<%=building.getBuildingId()%>"><img src="../../images/<%=bimage.getBuildingImageName()%>" alt="图片无法显示"/></a>
+                            <a href="buildingDetails.jsp?id=<%=building.getBuildingId()%>"><img src="<%=bimage.getBuildingImageName()%>" alt="图片无法显示"/></a>
                             <div class="caption">
                                 <a> <h3><%=building.getBuildingName() %></h3></a>
                                 <p><%=building.getBuildingPrice()%>元/平米</p>
@@ -204,7 +216,7 @@
                 <%
                         }
                 %>
-                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;color: red;">
+                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;color: black;">
                     <a href="building.jsp?yeid=1">上一页</a>
                     <%
                         for (int MY=1;MY<MaxYe;MY++){
@@ -264,7 +276,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -288,7 +300,7 @@
                     <%
                         for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="../redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>

@@ -10,35 +10,49 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>主页</title>
-    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <!-- Custom Theme files -->
-    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="screen" />
+<title>主页</title>
+<link rel="shortcut icon" href="../images/logo.jpg" />
+<%--搜索条件筛选--%>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<%--搜索条件筛选--%>
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<meta name="keywords" content="Auction Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-    <!-- Custom Theme files -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
-    </script>
-    <meta name="keywords" content="Auction Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <!--Google Fonts-->
-    <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <!-- start-smoth-scrolling -->
-    <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/move-top.js"></script>
-    <script type="text/javascript" src="../js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
+<link rel="stylesheet" type="text/css" href="../css/default.css" />
+<link rel="stylesheet" type="text/css" href="../css/component.css" />
+
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/move-top.js"></script>
+<script type="text/javascript" src="../js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
         });
-    </script>
+    });
+</script>
+    <!--*************************************      轮播        ***********************************************************-->
+    <link rel="stylesheet" type="text/css" href="../admin/lunbo/zzsc.css">
+    <link rel="stylesheet" href="../admin/lunbo/lbstyle.css">
+    <script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="../admin/lunbo/main.js"></script>
+    <!--*************************************      结束        ***********************************************************-->
 </head>
 <body>
 <!-- //end-smoth-scrolling -->
@@ -47,7 +61,7 @@
     <div class="container">
         <div class="header-main">
             <div class="logo">
-                <a href="index.html"> <img src="../images/logo.png" alt="" title=""> </a>
+                <a href="homePage.jsp"> <img src="../images/logo.png" alt="" title=""/> </a>
             </div>
             <div class="head-right">
                 <div class="top-nav">
@@ -70,16 +84,32 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
-            </div>
                 <%--用户头像--%>
-            <div class="search-box">
-                <div id="sb-search" class="sb-search">
-                    <a href="userCenter/userInfo.jsp"><img src="../images/face.jpg" height=100% width=100%></a>
+                <div class="search-box">
+                    <div id="sb-search" class="sb-search">
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(255,255,255,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="userCenter/userInfo.jsp"><img src="../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
+                    </div>
                 </div>
+                <div class="clearfix"> </div>
+                <!-- search-scripts -->
+                <script src="../js/classie.js"></script>
+                <script src="../js/uisearch.js"></script>
+                <script>
+                    new UISearch( document.getElementById( 'sb-search' ) );
+                </script>
+                <!-- //search-scripts -->
             </div>
             <div class="clearfix"> </div>
         </div>
-        <div class="clearfix"> </div>
     </div>
 </div>
 <!--header end here-->
@@ -96,27 +126,16 @@
         });
     });
 </script>
-
+<%--主页主界面--%>
 <div class="banner">
-    <div class="container">
-        <div class="banner-main">
-            <ul class="rslides" id="slider">
-                <li>
-                    <h3>最好的服务</h3>
-                    <p>欢迎来到优购房</p>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<div class="banner-strip">
-    <div class="container">
-        <h3>优房购带来最优质的服务</h3>
-        <div class="bann-strip-btn">
-            <a href="#" class="hvr-shutter-out-horizontal">Read More</a>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
+    <!--*************************************      轮播        ***********************************************************-->
+    <div class="cont" style="border-bottom: solid 10px;border-bottom-color: #0ab2d2">
+        <div class="slider"></div>
+        <ul class="nav"></ul></div>
+    <div data-target='right' class="side-nav side-nav--right"></div>
+    <div data-target='left' class="side-nav side-nav--left"></div>
+
+    <!--*************************************          结束         ***********************************************************-->
 </div>
 <!--banner strip end here-->
 <!--services start here-->
@@ -150,7 +169,7 @@
                     <div class="col-sm-6 col-md-4 ser">
                         <div class="thumbnail">
                             <a href="building/buildingDetails.jsp?id=<%=building.getBuildingId()%>">
-                                <img src="../images/<%=Buimage.getBuildingImageName()%>" alt=""/></a>
+                                <img src="<%=Buimage.getBuildingImageName()%>" alt=""/></a>
                             <div class="caption">
                                 <a> <h3><%=building.getBuildingName() %></h3></a>
                                 <p>环境优美，装修奢华.</p>
@@ -187,7 +206,7 @@
                 %>
                 <div class="col-md-5 featu-left">
                     <a href="redecorated/redecoratedDetails.jsp?id=<%=redecorated.get(0).getRedecoratedId()%>">
-                        <img src="../images/<%=redecorated.get(0).getRedecoratedImageName()%>" width="400px" height="200px" alt=""></a>
+                        <img src="<%=redecorated.get(0).getRedecoratedImageName()%>" width="400px" height="200px" alt=""></a>
                 </div>
                 <div class="col-md-7 featu-right">
                     <h3><%=redecorated.get(0).getRedecoratedStyle()%>设计</h3>
@@ -220,7 +239,7 @@
                 </div>
                 <div class="col-md-5 effec-right">
                     <a href="redecorated/redecoratedDetails.jsp?id=<%=redecorated.get(1).getRedecoratedId()%>">
-                        <img src="../images/<%=redecorated.get(1).getRedecoratedImageName()%>" width="400px" height="200px" alt=""></a>
+                        <img src="<%=redecorated.get(1).getRedecoratedImageName()%>" width="400px" height="200px" alt=""></a>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -229,7 +248,7 @@
 </div>
 <!--effec end here-->
 <!--project star here-->
-<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+<link rel="stylesheet" type="text/css" href="../css/magnific-popup.css">
 <script type="text/javascript" src="../js/nivo-lightbox.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -263,7 +282,7 @@
                         <%--<div class="nivo-lightbox-demo">--%>
                             <%--<p> <a href="rentHouse/rentHouseDetails.jsp?id=<%=RHouse.getRentHouseId()%>"><img src="../images/<%=rhimage.getRentHouseImageName()%>" alt=""/></a></p>--%>
                         <%--</div>--%>
-                            <a href="rentHouse/rentHouseDetails.jsp?id=<%=RHouse.getRentHouseId()%>"><img src="../images/<%=rhimage.getRentHouseImageName()%>" width="300px" height="300px" alt=""/></a>
+                            <a href="rentHouse/rentHouseDetails.jsp?id=<%=RHouse.getRentHouseId()%>"><img src="<%=rhimage.getRentHouseImageName()%>" width="300px" height="300px" alt=""/></a>
 
                     </div>
                     <div class="project-details">
@@ -318,7 +337,7 @@
             </div>
             <div class="col-md-3 footer-grid">
                 <h3>关于我们</h3>
-                <p>搜房网是全球最大的房地产家居网络平台，一直引领新房、二手房、租房、家居、房地产研究等领域的互联网创新，在PC及移动领域均处于领先的地位。
+                <p>优购房是全球最大的房地产家居网络平台，一直引领新房、二手房、租房、家居、房地产研究等领域的互联网创新，在PC及移动领域均处于领先的地位。
                     根据DCCI第三方数据显示，2014年搜房网PC平台用户浏览量和独立访客数始终领先，位居第一。</p>
             </div>
             <div class="col-md-3 footer-grid">
@@ -336,7 +355,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -359,7 +378,7 @@
                 <div class="ftr-gd4-img">
                     <%for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="redecorated/redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>
@@ -383,6 +402,7 @@
                         <li><a href="rentHouse/rentHouse.jsp">租房</a></li>
                         <li><a href="redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="comment/forum.jsp">论坛</a></li>
+                        <li><a href="admin/AdminLogin.jsp">管理员登录</a></li>
                     </ul>
                 </div>
             </div>

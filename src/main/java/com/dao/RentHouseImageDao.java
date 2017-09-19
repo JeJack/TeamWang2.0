@@ -56,4 +56,63 @@ public class RentHouseImageDao {
             }
         }
     }
+
+    public boolean deleteRentHouseImageByRentHouseId(int id){
+        boolean flag=false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "delete from renthouseimage where renthouseId=?";
+            stmt = conn.prepareStatement(sql);//可以替换变量
+            stmt.setInt(1,id);
+            if(!stmt.execute()){
+                flag=true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            if (stmt != null) {//释放语句对象
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return flag;
+    }
+
+    public boolean createRentHouseImageInfoSql(RentHouseImage rentHouseImage){
+        //将出租房信息插入数据库
+        boolean flag=false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DBHelper.getConnection();
+            String sql="insert into renthouseimage(rentHouseId,rentHouseImageName) values(?,?)";
+            stmt = conn.prepareStatement(sql);//可以替换变量
+            stmt.setInt(1,rentHouseImage.getRentHouseId());
+            stmt.setString(2,rentHouseImage.getRentHouseImageName());
+            if(!stmt.execute()){
+                flag=true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            if (stmt != null) {//释放语句对象
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return flag;
+
+    }
+
+
 }

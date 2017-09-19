@@ -409,8 +409,11 @@ background:url("../images/3.png") no-repeat left top;
   border-bottom: 1px solid #e1e1e1;
 }
 .thumbnail {
+    width: 370px;
+    height:270px;
   border: none;
   padding: 0px;
+    overflow: hidden;
 }
 .thumbnail .caption {
   padding: 0px;

@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>装修效果详情</title>
-
+    <link rel="shortcut icon" href="../../images/logo.jpg" />
     <link rel="stylesheet" href="../../css/imgbox.css"/>
     <script src="../../js/jquery.min.js"></script>
     <script src="../../js/jquery.imgbox.pack.js"></script>
@@ -78,13 +78,19 @@
                     </script>
                     <!-- /script-for-menu -->
                 </div>
+                <%--用户头像--%>
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
-                        <form>
-                            <input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
-                            <input class="sb-search-submit" type="submit" value="">
-                            <span class="sb-icon-search"> </span>
-                        </form>
+                        <%if (session.getAttribute("UserId")!=null){
+                            UsersDao usersDao=new UsersDao();
+                            Users user = usersDao.getUsersById(session.getAttribute("UserId").hashCode());
+                            if (user.getUserPhoto()!=null){
+                        %>
+                        <a href="../userCenter/userInfo.jsp"><img src="<%=user.getUserPhoto()%>" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+                        <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
+                        <%}}%>
+                        <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
+
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -112,12 +118,12 @@
                 {
             %>
             <div class="blog-top">
-                <h3><%=redecorated.getRedecoratedStyle()%>风格<%=redecorated.getRedecoratedFunction()%></h3>
+                <h3><%=redecorated.getRedecoratedStyle()%>风格<%=redecorated.getRedecoratedFunction()%>  &nbsp;&nbsp;<a href="../DoOperation/doCollectionRedecorated.jsp?id=<%=redecorated.getRedecoratedId()%>" style="color: red">收藏</a> &nbsp;&nbsp;<a href="applyRedecorated.jsp?id=<%=redecorated.getRedecoratedId()%>" style="color: red">申请装修</a></h3>
                 <p><%=redecorated.getRedecoratedDescribe()%></p>
             </div>
             <div class="col-md-9 blog-left">
                 <div class="blog-grids">
-                    <a><img src="../../images/<%=redecorated.getRedecoratedImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
+                    <a><img src="<%=redecorated.getRedecoratedImageName()%>"  width="480px" height="400px" alt="查不到错误"/></a>
                     <%--<div class="blog-detail">--%>
                         <%--<a><h3>装修简介</h3></a>--%>
                         <%--&lt;%&ndash;<h4><span class="blog-clr">交通状况</span></h4>&ndash;%&gt;--%>
@@ -180,7 +186,7 @@
                 %>
                 <div class="ftr-sub-gd">
                     <div class="col-md-4 ftr-gd2-img">
-                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="../../images/<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
+                        <a href="../building/buildingDetails.jsp?id=<%=BuildRent.getBuildingId()%>"><img src="<%=BuildImageList.get(0).getBuildingImageName()%>" width="60px" height="60px" alt=""></a>
                     </div>
                     <div class="col-md-8 ftr-gd2-text">
                         <a href="#"><h4><%=BuildRent.getBuildingName()%></h4></a>
@@ -204,7 +210,7 @@
                     <%
                         for (int n=0;img<Rimg.size()&&n<4;img++){
                     %>
-                    <a href="redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="../../images/<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
+                    <a href="redecoratedDetails.jsp?id=<%=Rimg.get(img).getRedecoratedId()%>"><img src="<%=Rimg.get(img).getRedecoratedImageName()%>" width="60px" height="60px"/></a>
                     <% n++;}%>
                     <div class="clearfix"> </div>
                 </div>

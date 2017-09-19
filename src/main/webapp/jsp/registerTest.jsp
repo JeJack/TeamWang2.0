@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>注册</title>
+    <link rel="shortcut icon" href="../images/logo.jpg" />
     <link rel="stylesheet" type="text/css" href="css/register.css">
 </head>
 <body>

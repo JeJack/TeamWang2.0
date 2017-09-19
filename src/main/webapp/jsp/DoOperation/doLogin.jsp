@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.entity.Users" %><%--
   Created by IntelliJ IDEA.
   User: qiuje
   Date: 2017/9/4
@@ -16,13 +16,15 @@
 <%
     if (usersDao.usersLogin(loginUser))
     {
-
+        Users u=usersDao.getUsersByName(loginUser.getUserName());
+        session.setAttribute("UserId",u.getUserId());
 //        session.setAttribute("Info",loginUser.getUserName());
 //        request.getRequestDispatcher("test.jsp").forward(request,response);
         response.sendRedirect("../homePage.jsp");
     }
     else
     {
+        session.setAttribute("Info","账号 或密码错误");
         response.sendRedirect("../login.jsp");
 //        session.setAttribute("Info","账号 或密码错误");
 //        request.getRequestDispatcher("../login.jsp").forward(request,response);

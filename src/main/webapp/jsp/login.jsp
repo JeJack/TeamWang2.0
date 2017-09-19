@@ -14,13 +14,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Minimal and Clean Sign up / Login and Forgot Form by FreeHTML5.co</title>
+    <title>登录</title>
+    <link rel="shortcut icon" href="../images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-
-
-
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -58,6 +56,7 @@
     if (session.getAttribute("Info")!=null)
     {
         Info=session.getAttribute("Info").toString();
+        session.removeAttribute("Info");
     }
 %>
 
@@ -67,9 +66,10 @@
     <div class="row"></div>
     <div class="row">
         <div class="col-md-4 col-md-push-8">
-            <h2><%=Info%></h2>
+            <h2 style="color: rgba(208,40,123,0.8)"><%=Info%></h2>
+
             <!-- Start Sign In Form -->
-            <form action="DoOperation/doLogin.jsp" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
+            <form action="DoOperation/doLogin.jsp" name="form" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
                 <h2>登录</h2>
                 <div class="form-group">
                     <%--<label for="userName" class="sr-only">用户名</label>--%>
@@ -86,7 +86,7 @@
                     <p>未注册？ <a href="register.jsp">点我注册</a> | <a href="forgetPassword.jsp">忘记密码？</a></p>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="登录" class="btn btn-primary"/>
+                    <input type="submit" value="登录" onclick="return onCheck()"  class="btn btn-primary"/>
                 </div>
             </form>
             <!-- END Sign In Form -->
@@ -107,6 +107,23 @@
 <script src="../js/jquery.waypoints.min.js"></script>
 <!-- Main JS -->
 <script src="../js/main.js"></script>
+<script type="text/javascript">
+    function onCheck()
+    {
+        if(form.userName==null||form.userName.value=="")
+        {
+            alert("用户名不能为空");
+            return false;
+        }
+        if(form.userLoginPassword==null||form.userLoginPassword.value=="")
+        {
+            alert("密码不能为空");
+            return false;
+        }
 
+        else
+            return true;
+    }
+</script>
 </body>
 </html>

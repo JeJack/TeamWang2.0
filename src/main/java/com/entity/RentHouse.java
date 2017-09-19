@@ -1,6 +1,7 @@
 package com.entity;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 /**
  * Created by qiuje on 2017/9/4.
@@ -10,7 +11,7 @@ public class RentHouse {
     private String rentHouseName;
     private String rentHouseAddress;
     private int rentHouseArea;
-    private Date rentHouseBuildTime;//房子修建时间
+    private String rentHouseBuildTime;//房子修建时间
     private int rentHouseHall;//厅，卧，卫
     private int rentHouseBedroom;
     private int rentHouseToilet;
@@ -19,7 +20,7 @@ public class RentHouse {
     private int rentHousePrice;//每月租金
     private String rentHouseCity;//市
     private String rentHouseDistrict;//区
-    private Date rentHousePublishTime;//发布出租的时间
+    private Object rentHousePublishTime;//发布出租的时间
     private String rentHouseRedecorated;
     private String rentHousePhone;
     private String rentHouseDescribe;
@@ -59,11 +60,11 @@ public class RentHouse {
         this.rentHouseArea = rentHouseArea;
     }
 
-    public Date getRentHouseBuildTime() {
+    public String getRentHouseBuildTime() {
         return rentHouseBuildTime;
     }
 
-    public void setRentHouseBuildTime(Date rentHouseBuildTime) {
+    public void setRentHouseBuildTime(String rentHouseBuildTime) {
         this.rentHouseBuildTime = rentHouseBuildTime;
     }
 
@@ -131,11 +132,11 @@ public class RentHouse {
         this.rentHouseDistrict = rentHouseDistrict;
     }
 
-    public Date getRentHousePublishTime() {
+    public Object getRentHousePublishTime() {
         return rentHousePublishTime;
     }
 
-    public void setRentHousePublishTime(Date rentHousePublishTime) {
+    public void setRentHousePublishTime(Object rentHousePublishTime) {
         this.rentHousePublishTime = rentHousePublishTime;
     }
 

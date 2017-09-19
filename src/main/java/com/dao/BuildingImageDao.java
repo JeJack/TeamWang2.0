@@ -56,4 +56,61 @@ public class BuildingImageDao {
             }
         }
     }
+    public boolean deleteBuildingImageByBuildingId(int id){
+        boolean flag=false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "delete from buildingimage where buildingId=?";
+            stmt = conn.prepareStatement(sql);//可以替换变量
+            stmt.setInt(1,id);
+            if(!stmt.execute()){
+                flag=true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            if (stmt != null) {//释放语句对象
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return flag;
+    }
+
+    public boolean createBuildingImageInfoSql(BuildingImage buildingImage){
+        //将出租房信息插入数据库
+        boolean flag=false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DBHelper.getConnection();
+            String sql="insert into buildingimage(buildingId,buildingImageName) values(?,?)";
+            stmt = conn.prepareStatement(sql);//可以替换变量
+            stmt.setInt(1,buildingImage.getBuildingId());
+            stmt.setString(2,buildingImage.getBuildingImageName());
+            if(!stmt.execute()){
+                flag=true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            if (stmt != null) {//释放语句对象
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return flag;
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.entity;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 /**
  * Created by qiuje on 2017/9/6.
@@ -20,19 +21,19 @@ public class Building {
     private String buildingDistrict;//区
     private String buildingRedecorated;
     private String buildingPhone;
-    private String buildingDescribe;
-    private Date buildingTimeHanded;//开盘时间
+    private Object buildingPublishTime;//登记出卖时间
     private String buildingTrafficInfo;
     private String buildingProjectMatching;
     private String buildingCharacteristic;
     private String buildingProjectBrief;
     private String buildingCategory;
     private String buildingGreeningRate;
-    private String buildingPlotRatio;
+    private String buildingPlotRatio;//容积率
     private int buildingSumNum;
     private String buildingPropertyCompany;
     private String buildingHousehold;
     private String buildingPark;
+    private String buildingTimeHanded;
 
 
     public Building(){}
@@ -149,20 +150,12 @@ public class Building {
         this.buildingPhone = buildingPhone;
     }
 
-    public String getBuildingDescribe() {
-        return buildingDescribe;
+    public Object getBuildingPublishTime() {
+        return buildingPublishTime;
     }
 
-    public void setBuildingDescribe(String buildingDescribe) {
-        this.buildingDescribe = buildingDescribe;
-    }
-
-    public Date getBuildingTimeHanded() {
-        return buildingTimeHanded;
-    }
-
-    public void setBuildingTimeHanded(Date buildingTimeHanded) {
-        this.buildingTimeHanded = buildingTimeHanded;
+    public void setBuildingPublishTime(Object buildingPublishTime) {
+        this.buildingPublishTime = buildingPublishTime;
     }
 
     public String getBuildingCategory() {
@@ -251,5 +244,13 @@ public class Building {
 
     public void setBuildingCategory(String buildingCategory) {
         this.buildingCategory = buildingCategory;
+    }
+
+    public String getBuildingTimeHanded() {
+        return buildingTimeHanded;
+    }
+
+    public void setBuildingTimeHanded(String buildingTimeHanded) {
+        this.buildingTimeHanded = buildingTimeHanded;
     }
 }
