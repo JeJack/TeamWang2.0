@@ -91,7 +91,6 @@
                         <p style="color: rgba(140,134,208,0.8)"><%=user.getUserName()%></p>
                         <%}}%>
                         <a href="../userCenter/userInfo.jsp"><img src="../../images/nullphoto.jpg" style="height: 100%;width: 100%" class="user-image img-responsive"/></a>
-
                     </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -263,13 +262,26 @@
     <div class="container">
         <div class="services-main">
             <div class="services-bottom">
-                <!-- 商品循环开始 -->
+                <!-- 租房信息循环开始 -->
                 <%
                     RentHouseDao renthouseDao = new RentHouseDao();
                     ArrayList<RentHouse> list = renthouseDao.getAllRentHouse();
                     if(list!=null&&list.size()>0)
                     {
-                        for(int j=0;j<2;j++)
+                        int MaxYe= (new Double(Math.ceil((list.size()+1)/6.0))).intValue();
+                        int ye=0;
+                        String YY = request.getParameter("yeid");
+                        if(YY!=null){
+                            try {
+                                ye = Integer.parseInt(YY)+1;
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (ye==0){
+                            ye=1;
+                        }
+                        for(int j=ye*2-2;j<2*ye;j++)
                         {
                 %>
                 <div class="row">
@@ -299,6 +311,19 @@
                 </div>
                 <%
                         }
+                %>
+                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
+                    <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
+                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
+                    <%
+                        for (int MY=0;MY<MaxYe;MY++){
+                    %>
+                    <a href="rentHouse.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
                     }
                 %>
             </div>

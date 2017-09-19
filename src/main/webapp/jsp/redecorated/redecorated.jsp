@@ -235,8 +235,23 @@
                     }
                     if(redecorateds!=null&&redecorateds.size()>0)
                     {
-                        for(int j=0;j<10&&redecorateds.size()>3*j;j++)
+                        int MaxYe= (new Double(Math.ceil((redecorateds.size()+1)/6.0))).intValue();
+                        int ye=0;
+                        String YY = request.getParameter("yeid");
+                        if(YY!=null){
+                            try {
+                                ye = Integer.parseInt(YY)+1;
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if (ye==0){
+                            ye=1;
+                        }
+                        for(int j=ye*2-2;j<2*ye;j++)
                         {
+//                        for(int j=0;j<10&&redecorateds.size()>3*j;j++)
+//                        {
                 %>
                 <div class="row">
                     <%
@@ -260,6 +275,19 @@
                 </div>
                     <%
                         }
+                    %>
+                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
+                    <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
+                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
+                    <%
+                        for (int MY=0;MY<MaxYe;MY++){
+                    %>
+                    <a href="redecorated.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
+                    <%
+                        }
+                    %>
+                </div>
+                <%
                     }
                     %>
 

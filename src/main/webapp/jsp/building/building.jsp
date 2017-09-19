@@ -171,17 +171,16 @@
                     ArrayList<Building> list = buildDao.getAllBuilding();
                     if(list!=null&&list.size()>0)
                     {
-                        int MaxYe= (new Double(Math.ceil((list.size()+1)/6))).intValue();
+                        int MaxYe= (new Double(Math.ceil((list.size()+1)/6.0))).intValue();
                         int ye=0;
                         String YY = request.getParameter("yeid");
                         if(YY!=null){
                             try {
-                                ye = Integer.parseInt(YY);
+                                ye = Integer.parseInt(YY)+1;
                             } catch (NumberFormatException e) {
                                 e.printStackTrace();
                             }
                         }
-
                         if (ye==0){
                             ye=1;
                         }
@@ -216,26 +215,21 @@
                 <%
                         }
                 %>
-                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;color: black;">
-                    <a href="building.jsp?yeid=1">上一页</a>
+                <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
+                    <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
+                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
                     <%
-                        for (int MY=1;MY<MaxYe;MY++){
-
+                        for (int MY=0;MY<MaxYe;MY++){
                     %>
-                    <a href="building.jsp?yeid=MY"><%=MY%></a>
+                    <a href="building.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
                     <%
                         }
                     %>
-                    <a href="building.jsp?yeid=2">下一页</a>
                 </div>
                 <%
                     }
                 %>
-
             </div>
-
-
-
         </div>
     </div>
 </div>
