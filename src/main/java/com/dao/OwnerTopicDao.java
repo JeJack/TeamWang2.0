@@ -32,6 +32,7 @@ public class OwnerTopicDao {
                 ownerTopic.setOwnerUserId(rs.getInt("userId"));
                 ownerTopic.setOwnerTopicTheme(rs.getString("ownerTopicTheme"));
                 ownerTopic.setOwnerTopic(rs.getString("ownerTopic"));
+                ownerTopic.setCategory(rs.getString("category"));
                 ownerTopic.setOwnerTopicTime(rs.getObject("ownerTopicTime"));
             }
             else{
@@ -83,6 +84,7 @@ public class OwnerTopicDao {
                 ownerTopic.setOwnerUserId(rs.getInt("userId"));
                 ownerTopic.setOwnerTopicTheme(rs.getString("ownerTopicTheme"));
                 ownerTopic.setOwnerTopic(rs.getString("ownerTopic"));
+                ownerTopic.setCategory(rs.getString("category"));
                 ownerTopic.setOwnerTopicTime(rs.getObject("ownerTopicTime"));
             }
             else{
@@ -111,18 +113,18 @@ public class OwnerTopicDao {
             }
         }
         return ownerTopic;
-
     }
 
-    public ArrayList<OwnerTopic> getAllOwnerTopic() {//获得所有贴子信息
+    public ArrayList<OwnerTopic> getAllOwnerTopic(String category) {//获得所有贴子信息
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
         ArrayList<OwnerTopic> list = new ArrayList<OwnerTopic>();
         try{
             conn = DBHelper.getConnection();
-            String sql = "select * from ownertopic"; // SQL语句
+            String sql = "select * from ownertopic where category=?;"; // SQL语句
             stmt = conn.prepareStatement(sql);
+            stmt.setString(1,category);
             rs = stmt.executeQuery();
             while(rs.next())
             {
@@ -131,8 +133,8 @@ public class OwnerTopicDao {
                 ownerTopic.setOwnerUserId(rs.getInt("userId"));
                 ownerTopic.setOwnerTopicTheme(rs.getString("ownerTopicTheme"));
                 ownerTopic.setOwnerTopic(rs.getString("ownerTopic"));
+                ownerTopic.setCategory(rs.getString("category"));
                 ownerTopic.setOwnerTopicTime(rs.getObject("ownerTopicTime"));
-
                 list.add(ownerTopic);
             }
             return list;
@@ -198,12 +200,13 @@ public class OwnerTopicDao {
         PreparedStatement stmt = null;
         try{
             conn = DBHelper.getConnection();
-            String sql="insert into ownertopic(userId,ownerTopicTheme,ownerTopic,ownerTopicTime) values(?,?,?,?)";
+            String sql="insert into ownertopic(userId,ownerTopicTheme,ownerTopic,category,ownerTopicTime) values(?,?,?,?,?)";
             stmt = conn.prepareStatement(sql);//可以替换变量
             stmt.setInt(1,ownerTopic.getOwnerUserId());
             stmt.setString(2,ownerTopic.getOwnerTopicTheme());
             stmt.setString(3,ownerTopic.getOwnerTopic());
-            stmt.setObject(4,ownerTopic.getOwnerTopicTime());
+            stmt.setString(4,ownerTopic.getCategory());
+            stmt.setObject(5,ownerTopic.getOwnerTopicTime());
             if(!stmt.execute()){
                 flag=true;
             }

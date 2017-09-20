@@ -314,5 +314,360 @@ public class BuildingDao {
         return building;
     }
 
+    public ArrayList<Building> getClass(Building buildingX){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Building> list = new ArrayList<Building>();
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "select * from buildinginfo where buildingDistrict=? and buildingPrice>? and buildingPrice<? and buildingFloor=? and buildingBedroom>? and buildingBedroom<?;";//SQL语句
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,buildingX.getBuildingDistrict());
+            if (buildingX.getBuildingPrice()>10000){
+                stmt.setInt(2,buildingX.getBuildingPrice());
+                stmt.setInt(3,buildingX.getBuildingPrice()+100000);
+            }else if (buildingX.getBuildingPrice()<1){
+                stmt.setInt(2,buildingX.getBuildingPrice());
+                stmt.setInt(3,buildingX.getBuildingPrice()+500000);
+            }else{
+                stmt.setInt(2,buildingX.getBuildingPrice()-2000);
+                stmt.setInt(3,buildingX.getBuildingPrice());
+            }
+            stmt.setString(4,buildingX.getBuildingFloor());
+            if (buildingX.getBuildingBedroom()>5){
+                stmt.setInt(5,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(6,buildingX.getBuildingBedroom()+100);
+            }else if (buildingX.getBuildingBedroom()>0){
+                stmt.setInt(5,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(6,buildingX.getBuildingBedroom()+1);
+            }else {
+                stmt.setInt(5,buildingX.getBuildingBedroom());
+                stmt.setInt(6,buildingX.getBuildingBedroom()+100);
+            }
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                Building building = new Building();
+                building.setBuildingId(rs.getInt("buildingId"));
+                building.setBuildingName(rs.getString("buildingName"));
+                building.setBuildingAddress(rs.getString("buildingAddress"));
+                building.setBuildingArea(rs.getInt("buildingArea"));
+                building.setBuildingBedroom(rs.getInt("buildingBedroom"));
+                building.setBuildingHall(rs.getInt("buildingHall"));
+                building.setBuildingToilet(rs.getInt("buildingToilet"));
+                building.setBuildingFloor(rs.getString("buildingFloor"));
+                building.setBuildingAllFloor(rs.getInt("buildingAllFloor"));
+                building.setBuildingPrice(rs.getInt("buildingPrice"));
+                building.setBuildingCity(rs.getString("buildingCity"));
+                building.setBuildingDistrict(rs.getString("buildingDistrict"));
+                building.setBuildingRedecorated(rs.getString("buildingRedecorated"));
+                building.setBuildingPhone(rs.getString("buildingPhone"));
+                building.setBuildingPublishTime(rs.getObject("buildingPublishTime"));
+                building.setBuildingTrafficInfo(rs.getString("buildingTrafficInfo"));
+                building.setBuildingProjectMatching(rs.getString("buildingProjectMatching"));
+                building.setBuildingProjectBrief(rs.getString("buildingProjectBrief"));
+                building.setBuildingCharacteristic(rs.getString("buildingCharacteristic"));
+                building.setBuildingCategory(rs.getString("buildingCategory"));
+                building.setBuildingGreeningRate(rs.getString("buildingGreeningRate"));
+                building.setBuildingPlotRatio(rs.getString("buildingPlotRatio"));
+                building.setBuildingSumNum(rs.getInt("buildingSumNum"));
+                building.setBuildingPropertyCompany(rs.getString("buildingPropertyCompany"));
+                building.setBuildingHousehold(rs.getString("buildingHousehold"));
+                building.setBuildingPark(rs.getString("buildingPark"));
+                building.setBuildingTimeHanded(rs.getString("buildingTimeHanded"));
+                list.add(building);
+            }
+            return list;
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            //释放数据集对象
+            if(rs!=null){
+                try{
+                    rs.close();
+                    rs = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            if(stmt!=null){
+                try{
+                    stmt.close();
+                    stmt = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public ArrayList<Building> getClassDouble(Building buildingX){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Building> list = new ArrayList<Building>();
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "select * from buildinginfo where buildingPrice>? and buildingPrice<? and buildingBedroom>? and buildingBedroom<?;";//SQL语句
+            stmt = conn.prepareStatement(sql);
+            if (buildingX.getBuildingPrice()>10000){
+                stmt.setInt(1,buildingX.getBuildingPrice());
+                stmt.setInt(2,buildingX.getBuildingPrice()+100000);
+            }else if (buildingX.getBuildingPrice()<1){
+                stmt.setInt(1,buildingX.getBuildingPrice());
+                stmt.setInt(2,buildingX.getBuildingPrice()+500000);
+            }else{
+                stmt.setInt(1,buildingX.getBuildingPrice()-2000);
+                stmt.setInt(2,buildingX.getBuildingPrice());
+            }
+            if (buildingX.getBuildingBedroom()>5){
+                stmt.setInt(3,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(4,buildingX.getBuildingBedroom()+100);
+            }else if (buildingX.getBuildingBedroom()>0){
+                stmt.setInt(3,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(4,buildingX.getBuildingBedroom()+1);
+            }else {
+                stmt.setInt(3,buildingX.getBuildingBedroom());
+                stmt.setInt(4,buildingX.getBuildingBedroom()+100);
+            }
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                Building building = new Building();
+                building.setBuildingId(rs.getInt("buildingId"));
+                building.setBuildingName(rs.getString("buildingName"));
+                building.setBuildingAddress(rs.getString("buildingAddress"));
+                building.setBuildingArea(rs.getInt("buildingArea"));
+                building.setBuildingBedroom(rs.getInt("buildingBedroom"));
+                building.setBuildingHall(rs.getInt("buildingHall"));
+                building.setBuildingToilet(rs.getInt("buildingToilet"));
+                building.setBuildingFloor(rs.getString("buildingFloor"));
+                building.setBuildingAllFloor(rs.getInt("buildingAllFloor"));
+                building.setBuildingPrice(rs.getInt("buildingPrice"));
+                building.setBuildingCity(rs.getString("buildingCity"));
+                building.setBuildingDistrict(rs.getString("buildingDistrict"));
+                building.setBuildingRedecorated(rs.getString("buildingRedecorated"));
+                building.setBuildingPhone(rs.getString("buildingPhone"));
+                building.setBuildingPublishTime(rs.getObject("buildingPublishTime"));
+                building.setBuildingTrafficInfo(rs.getString("buildingTrafficInfo"));
+                building.setBuildingProjectMatching(rs.getString("buildingProjectMatching"));
+                building.setBuildingProjectBrief(rs.getString("buildingProjectBrief"));
+                building.setBuildingCharacteristic(rs.getString("buildingCharacteristic"));
+                building.setBuildingCategory(rs.getString("buildingCategory"));
+                building.setBuildingGreeningRate(rs.getString("buildingGreeningRate"));
+                building.setBuildingPlotRatio(rs.getString("buildingPlotRatio"));
+                building.setBuildingSumNum(rs.getInt("buildingSumNum"));
+                building.setBuildingPropertyCompany(rs.getString("buildingPropertyCompany"));
+                building.setBuildingHousehold(rs.getString("buildingHousehold"));
+                building.setBuildingPark(rs.getString("buildingPark"));
+                building.setBuildingTimeHanded(rs.getString("buildingTimeHanded"));
+                list.add(building);
+            }
+            return list;
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            //释放数据集对象
+            if(rs!=null){
+                try{
+                    rs.close();
+                    rs = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            if(stmt!=null){
+                try{
+                    stmt.close();
+                    stmt = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public ArrayList<Building> getClassDis(Building buildingX){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Building> list = new ArrayList<Building>();
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "select * from buildinginfo where buildingPrice>? and buildingPrice<? and buildingFloor=? and buildingBedroom>? and buildingBedroom<?;";//SQL语句
+            stmt = conn.prepareStatement(sql);
+            if (buildingX.getBuildingPrice()>10000){
+                stmt.setInt(1,buildingX.getBuildingPrice());
+                stmt.setInt(2,buildingX.getBuildingPrice()+100000);
+            }else if (buildingX.getBuildingPrice()<1){
+                stmt.setInt(1,buildingX.getBuildingPrice());
+                stmt.setInt(2,buildingX.getBuildingPrice()+500000);
+            }else{
+                stmt.setInt(1,buildingX.getBuildingPrice()-2000);
+                stmt.setInt(2,buildingX.getBuildingPrice());
+            }
+            stmt.setString(3,buildingX.getBuildingFloor());
+            if (buildingX.getBuildingBedroom()>5){
+                stmt.setInt(4,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(5,buildingX.getBuildingBedroom()+100);
+            }else if (buildingX.getBuildingBedroom()>0){
+                stmt.setInt(4,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(5,buildingX.getBuildingBedroom()+1);
+            }else {
+                stmt.setInt(4,buildingX.getBuildingBedroom());
+                stmt.setInt(5,buildingX.getBuildingBedroom()+100);
+            }
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                Building building = new Building();
+                building.setBuildingId(rs.getInt("buildingId"));
+                building.setBuildingName(rs.getString("buildingName"));
+                building.setBuildingAddress(rs.getString("buildingAddress"));
+                building.setBuildingArea(rs.getInt("buildingArea"));
+                building.setBuildingBedroom(rs.getInt("buildingBedroom"));
+                building.setBuildingHall(rs.getInt("buildingHall"));
+                building.setBuildingToilet(rs.getInt("buildingToilet"));
+                building.setBuildingFloor(rs.getString("buildingFloor"));
+                building.setBuildingAllFloor(rs.getInt("buildingAllFloor"));
+                building.setBuildingPrice(rs.getInt("buildingPrice"));
+                building.setBuildingCity(rs.getString("buildingCity"));
+                building.setBuildingDistrict(rs.getString("buildingDistrict"));
+                building.setBuildingRedecorated(rs.getString("buildingRedecorated"));
+                building.setBuildingPhone(rs.getString("buildingPhone"));
+                building.setBuildingPublishTime(rs.getObject("buildingPublishTime"));
+                building.setBuildingTrafficInfo(rs.getString("buildingTrafficInfo"));
+                building.setBuildingProjectMatching(rs.getString("buildingProjectMatching"));
+                building.setBuildingProjectBrief(rs.getString("buildingProjectBrief"));
+                building.setBuildingCharacteristic(rs.getString("buildingCharacteristic"));
+                building.setBuildingCategory(rs.getString("buildingCategory"));
+                building.setBuildingGreeningRate(rs.getString("buildingGreeningRate"));
+                building.setBuildingPlotRatio(rs.getString("buildingPlotRatio"));
+                building.setBuildingSumNum(rs.getInt("buildingSumNum"));
+                building.setBuildingPropertyCompany(rs.getString("buildingPropertyCompany"));
+                building.setBuildingHousehold(rs.getString("buildingHousehold"));
+                building.setBuildingPark(rs.getString("buildingPark"));
+                building.setBuildingTimeHanded(rs.getString("buildingTimeHanded"));
+                list.add(building);
+            }
+            return list;
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            //释放数据集对象
+            if(rs!=null){
+                try{
+                    rs.close();
+                    rs = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            if(stmt!=null){
+                try{
+                    stmt.close();
+                    stmt = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public ArrayList<Building> getClassFloor(Building buildingX){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<Building> list = new ArrayList<Building>();
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "select * from buildinginfo where buildingDistrict=? and buildingPrice>? and buildingPrice<? and buildingBedroom>? and buildingBedroom<?;";//SQL语句
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,buildingX.getBuildingDistrict());
+            if (buildingX.getBuildingPrice()>10000){
+                stmt.setInt(2,buildingX.getBuildingPrice());
+                stmt.setInt(3,buildingX.getBuildingPrice()+100000);
+            }else if (buildingX.getBuildingPrice()<1){
+                stmt.setInt(2,buildingX.getBuildingPrice());
+                stmt.setInt(3,buildingX.getBuildingPrice()+500000);
+            }else{
+                stmt.setInt(2,buildingX.getBuildingPrice()-2000);
+                stmt.setInt(3,buildingX.getBuildingPrice());
+            }
+            if (buildingX.getBuildingBedroom()>5){
+                stmt.setInt(4,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(5,buildingX.getBuildingBedroom()+100);
+            }else if (buildingX.getBuildingBedroom()>0){
+                stmt.setInt(4,buildingX.getBuildingBedroom()-1);
+                stmt.setInt(5,buildingX.getBuildingBedroom()+1);
+            }else {
+                stmt.setInt(4,buildingX.getBuildingBedroom());
+                stmt.setInt(5,buildingX.getBuildingBedroom()+100);
+            }
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                Building building = new Building();
+                building.setBuildingId(rs.getInt("buildingId"));
+                building.setBuildingName(rs.getString("buildingName"));
+                building.setBuildingAddress(rs.getString("buildingAddress"));
+                building.setBuildingArea(rs.getInt("buildingArea"));
+                building.setBuildingBedroom(rs.getInt("buildingBedroom"));
+                building.setBuildingHall(rs.getInt("buildingHall"));
+                building.setBuildingToilet(rs.getInt("buildingToilet"));
+                building.setBuildingFloor(rs.getString("buildingFloor"));
+                building.setBuildingAllFloor(rs.getInt("buildingAllFloor"));
+                building.setBuildingPrice(rs.getInt("buildingPrice"));
+                building.setBuildingCity(rs.getString("buildingCity"));
+                building.setBuildingDistrict(rs.getString("buildingDistrict"));
+                building.setBuildingRedecorated(rs.getString("buildingRedecorated"));
+                building.setBuildingPhone(rs.getString("buildingPhone"));
+                building.setBuildingPublishTime(rs.getObject("buildingPublishTime"));
+                building.setBuildingTrafficInfo(rs.getString("buildingTrafficInfo"));
+                building.setBuildingProjectMatching(rs.getString("buildingProjectMatching"));
+                building.setBuildingProjectBrief(rs.getString("buildingProjectBrief"));
+                building.setBuildingCharacteristic(rs.getString("buildingCharacteristic"));
+                building.setBuildingCategory(rs.getString("buildingCategory"));
+                building.setBuildingGreeningRate(rs.getString("buildingGreeningRate"));
+                building.setBuildingPlotRatio(rs.getString("buildingPlotRatio"));
+                building.setBuildingSumNum(rs.getInt("buildingSumNum"));
+                building.setBuildingPropertyCompany(rs.getString("buildingPropertyCompany"));
+                building.setBuildingHousehold(rs.getString("buildingHousehold"));
+                building.setBuildingPark(rs.getString("buildingPark"));
+                building.setBuildingTimeHanded(rs.getString("buildingTimeHanded"));
+                list.add(building);
+            }
+            return list;
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            //释放数据集对象
+            if(rs!=null){
+                try{
+                    rs.close();
+                    rs = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            if(stmt!=null){
+                try{
+                    stmt.close();
+                    stmt = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
 
 }

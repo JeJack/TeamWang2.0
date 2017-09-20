@@ -10,6 +10,7 @@ public class OwnerTopic {
     private int ownerUserId;
     private String ownerTopicTheme;
     private String ownerTopic;
+    private String category;
     private Object ownerTopicTime;
 
     public OwnerTopic(){}
@@ -43,6 +44,14 @@ public class OwnerTopic {
 
     public void setOwnerTopic(String ownerTopic) {
         this.ownerTopic = ownerTopic;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Object getOwnerTopicTime() {
