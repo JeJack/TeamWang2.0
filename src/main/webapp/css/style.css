@@ -409,14 +409,14 @@ background:url("../images/3.png") no-repeat left top;
   border-bottom: 1px solid #e1e1e1;
 }
 .thumbnail {
-    width: 370px;
-    height:270px;
+    /*width: 370px;*/
+    /*height:270px;*/
   border: none;
-  padding: 0px;
+  padding: 0;
     overflow: hidden;
 }
 .thumbnail .caption {
-  padding: 0px;
+  padding: 0;
   color: #333;
 }
 .caption p {
@@ -1595,10 +1595,6 @@ span.menu{
 		font-weight: 700;
 		position:relative;
 	}
-.top-nav ul.res{
-	 display:none;
-	 padding:0px;
-}
 .top-nav ul.res {
 		padding: 0;
 		margin: 1.15em 0em 0em 0em;
@@ -1606,6 +1602,7 @@ span.menu{
 		position: absolute;
 		width: 100%;
 		left:0;
+    display:none;
 }
 .top-nav ul.res li {
 		display: block;
