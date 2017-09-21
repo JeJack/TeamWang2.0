@@ -52,6 +52,10 @@
 <body class="style-3">
 <%--登录出错 Start--%>
 <%
+    if (session.getAttribute("UserId")!=null){
+        session.removeAttribute("UserId");
+    }
+
     String Info="";
     if (session.getAttribute("Info")!=null)
     {
