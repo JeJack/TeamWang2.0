@@ -25,7 +25,6 @@
 
         int id=OTopicDao.getOwnerTopicByUserIdAndTopic(OTopic).getOwnerTopicId();
         String s = "topicDetails.jsp?id="+id;
-        System.out.println(s);
         response.sendRedirect(s);
     }else {
         response.sendRedirect("../login.jsp");

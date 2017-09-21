@@ -17,7 +17,6 @@
 <%
     if (user.getUserEmail()!=null){
         MailC.sendMail(user.getUserEmail());
-        System.out.println(MailC.icode);
         session.setAttribute("Email",user.getUserEmail());
         session.setAttribute("Code",MailC.icode);
         response.sendRedirect("MailCode.jsp");
