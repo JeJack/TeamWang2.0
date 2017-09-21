@@ -16,6 +16,11 @@
 <%
     if (session.getAttribute("UserId")!=null){
         OTopic.setOwnerUserId(session.getAttribute("UserId").hashCode());
+        if (OTopic.getCategory()!=null&&OTopic.getCategory().equals("装修论坛贴子")){
+            OTopic.setCategory("redecorated");
+        }else if (OTopic.getCategory()!=null&&OTopic.getCategory().equals("业主论坛贴子")){
+            OTopic.setCategory("owner");
+        }
         OTopicDao.createOwnerTopicInfoSql(OTopic);
 
         int id=OTopicDao.getOwnerTopicByUserIdAndTopic(OTopic).getOwnerTopicId();

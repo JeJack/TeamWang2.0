@@ -227,10 +227,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <p class="comment-notes" style="text-align: center">请认真对待用户，遵守社区公约言论规则，不得违反国家法律法规</p>
                         <div style="margin:0 auto; width:756px; height:80px; border:1px solid rgba(159,159,159,0.12)">
                             <h5>发表FAQ</h5>
-                            <input type="text" style="height: 30px;width: 756px;text-align: center" name="faqTheme" placeholder="请填写标题">
+                            <input type="text" style="height: 30px;width: 756px;" name="faqTheme" placeholder="请填写标题">
                         </div>
                         <div style="margin: auto; width:756px; height:210px; border:1px solid rgba(210,255,197,0.09)">
-                            <textarea class="span8" name="faq" cols="58" rows="10" style="height: 210px;width: 756px;text-align: center" placeholder="请输入您的问题详情"></textarea>
+                            <textarea class="span8" name="faq" cols="58" rows="10" style="height: 210px;width: 756px;" placeholder="请输入您的问题详情"></textarea>
                         </div>
                         <p class="comment-notes" style="text-align: center">请遵守相应法律法规。</p>
                         <div style="margin:0 auto; width:46px; height:28px; border:1px solid #37ff4b">
@@ -254,7 +254,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                     <tbody>
                     <%
                         ArrayList<Faq> faqs = faqDao.getAllFaq();
-                        if (faq!=null){
+                        for (int j=0;faqs!=null&&faqs.size()>j;j++)
+                        {
+                            faq=faqs.get(j);
+                            if (faq!=null){
                     %>
                     <tr>
                         <td><%=faq.getFaqId()%></td>
@@ -262,14 +265,12 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <td><%=faq.getFaq()%></td>
                         <td><%=faq.getFaqTime()%></td>
                     </tr>
-                    <%}else {
+                    <%}}
                     %>
                     <td>null</td>
                     <td>null</td>
                     <td>null</td>
                     <td>null</td>
-                    <%
-                        }%>
                     </tbody>
                 </table>
         </div>

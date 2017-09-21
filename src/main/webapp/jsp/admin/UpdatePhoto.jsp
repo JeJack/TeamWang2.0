@@ -14,7 +14,7 @@
     <title>上传图片</title>
 </head>
 <body>
-<h2>上传的信息已经保存，请上传源信息对应的图</h2>
+<%--<h2>上传的信息已经保存，请上传源信息对应的图</h2>--%>
 <%
     String UPinfo="";
     if (session.getAttribute("Info")!=null)

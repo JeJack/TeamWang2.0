@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: qiuje
   Date: 2017/9/4
-  Time: 10:10
+  Time: 10:17
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>忘记密码</title>
+    <title>注册</title>
     <link rel="shortcut icon" href="../images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
@@ -40,7 +40,6 @@
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/style.css">
 
-
     <!-- Modernizr JS -->
     <script src="../js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -50,35 +49,33 @@
 
 </head>
 <body class="style-3">
-<%--信息填写错误 Start--%>
-<%
-    String Info="";
-    if (session.getAttribute("Info")!=null)
-    {
-        Info=session.getAttribute("Info").toString();
-        session.removeAttribute("Info");
-    }
-%>
-
-<%--信息填写错误 End--%>
 
 <div class="container">
     <div class="row"></div>
     <div class="row">
         <div class="col-md-4 col-md-push-8">
+            <%
+                String Info="";
+                if (session.getAttribute("Info")!=null)
+                {
+                    Info=session.getAttribute("Info").toString();
+                    session.removeAttribute("Info");
+                }
+            %>
             <h2 style="color: rgba(208,40,123,0.8)"><%=Info%></h2>
-
             <!-- Start Sign In Form -->
-            <form action="doForget.jsp" name="form" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
-                <h2>验证邮箱找回密码</h2>
+            <form action="doMailCode.jsp" name="form" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
+                <h2>邮箱登录</h2>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="userEmail" placeholder="请输入邮箱" autocomplete="off">
+                    <input type="text" class="form-control" name="userLoginPassword" placeholder="验证码" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="获取验证码" onclick="return onCheck()" class="btn btn-primary"/>
+                    <input type="submit" value="登录" onclick="return onCheck()" class="btn btn-primary"/>
                 </div>
             </form>
             <!-- END Sign In Form -->
+
+
         </div>
     </div>
     <div class="row" style="padding-top: 60px; clear: both;"></div>
@@ -97,20 +94,9 @@
 <script type="text/javascript">
     function onCheck()
     {
-        var userName = form.userName.value;//用户名
-        var cot1 = userName.length;
-
-        var phone = form.userPhoneNum.value;
-        var regphone = "^1[3|4|5|8][0-9]\\d{8}$";//电话号码正则表达式
-        var rephone = new RegExp(regphone);//电话号码
-        if(!rephone.test(phone))
+        if(form.userLoginPassword==null||form.userLoginPassword.value=="")
         {
-            alert("手机号输入错误");
-            return false;
-        }
-        if(form.userName==null||form.userName.value=="" || cot1>9)
-        {
-            alert("输入错误:用户名为空或用户名长度超过8个字符");
+            alert("验证码不能为空");
             return false;
         }
         else

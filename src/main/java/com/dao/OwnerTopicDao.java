@@ -163,6 +163,55 @@ public class OwnerTopicDao {
         }
     }
 
+    public ArrayList<OwnerTopic> getAllOwnerTopicDESC(String category) {//获得所有贴子信息
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        ArrayList<OwnerTopic> list = new ArrayList<OwnerTopic>();
+        try{
+            conn = DBHelper.getConnection();
+            String sql = "select * from ownertopic where category=? order by ownerTopicTime desc;"; // SQL语句
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,category);
+            rs = stmt.executeQuery();
+            while(rs.next())
+            {
+                OwnerTopic ownerTopic = new OwnerTopic();
+                ownerTopic.setOwnerTopicId(rs.getInt("ownerTopicId"));
+                ownerTopic.setOwnerUserId(rs.getInt("userId"));
+                ownerTopic.setOwnerTopicTheme(rs.getString("ownerTopicTheme"));
+                ownerTopic.setOwnerTopic(rs.getString("ownerTopic"));
+                ownerTopic.setCategory(rs.getString("category"));
+                ownerTopic.setOwnerTopicTime(rs.getObject("ownerTopicTime"));
+                list.add(ownerTopic);
+            }
+            return list;
+
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }finally {
+            //释放数据集对象
+            if(rs!=null){
+                try{
+                    rs.close();
+                    rs = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+            if(stmt!=null){
+                try{
+                    stmt.close();
+                    stmt = null;
+                }catch(Exception ex){
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+
     public boolean deleteOwnerTopicByOwnerTopicId(int id){
         boolean flag=false;
         Connection conn = null;

@@ -18,15 +18,11 @@
     {
         Users u=usersDao.getUsersByName(loginUser.getUserName());
         session.setAttribute("UserId",u.getUserId());
-//        session.setAttribute("Info",loginUser.getUserName());
-//        request.getRequestDispatcher("test.jsp").forward(request,response);
         response.sendRedirect("../homePage.jsp");
     }
     else
     {
         session.setAttribute("Info","账号 或密码错误");
         response.sendRedirect("../login.jsp");
-//        session.setAttribute("Info","账号 或密码错误");
-//        request.getRequestDispatcher("../login.jsp").forward(request,response);
     }
 %>

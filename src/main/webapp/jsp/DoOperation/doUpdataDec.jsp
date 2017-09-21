@@ -18,9 +18,10 @@
         Redecorated redecorated = redecoratedDao.getRedecoratedByPriceDescribe(redecoratedInfo);
         session.setAttribute("redecoratedId",redecorated.getRedecoratedId());
         response.sendRedirect("../admin/UpdatePhoto.jsp");
+        return;
     }
     else{
-        session.setAttribute("Info","数据上传失败");
-        request.getRequestDispatcher("test.jsp").forward(request,response);
+        session.setAttribute("Info","数据上传失败,请重试！！！");
+        response.sendRedirect("../admin/UpdataDec.jsp");
     }
 %>

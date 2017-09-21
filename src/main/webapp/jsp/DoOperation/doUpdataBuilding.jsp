@@ -18,9 +18,10 @@
         Building building = BuildInfoDao.getBuildingByPhoneCharacteristic(BuildInfo);
         session.setAttribute("buildingId",building.getBuildingId());
         response.sendRedirect("../admin/UpdatePhoto.jsp");
+        return;
     }
     else{
-        session.setAttribute("Info","数据上传失败");
-        request.getRequestDispatcher("test.jsp").forward(request,response);
+        session.setAttribute("Info","数据上传失败,请重试！！！");
+        response.sendRedirect("../admin/UpdataBuilding.jsp");
     }
 %>

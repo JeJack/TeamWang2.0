@@ -128,6 +128,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <li>
                             <a href="ReplyContact.jsp">用户提交的问题</a>
                         </li>
+                        <li>
+                            <a href="UpdateFAQ.jsp">常见问题管理</a>
+                        </li>
+
 
                     </ul>
                 </li>
@@ -141,7 +145,6 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
             <div class="row">
                 <div class="col-md-12">
                     <h2>装修上架</h2>
-
                 </div>
             </div>
             <!-- /. ROW  -->
@@ -223,6 +226,16 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                                         <%--<input type="submit" class="btn btn-default">--%>
                                     <input type="submit" value="提交" onclick="return onCheck()"/>
                                     <input type="reset" value="取消"/>
+                                    <div class="form-group">
+                                        <%
+                                            if (session.getAttribute("Info")!=null){
+                                        %>
+                                        <p><%=session.getAttribute("Info")%></p>
+                                        <%
+                                                session.removeAttribute("Info");
+                                            }
+                                        %>
+                                    </div>
 
                                 </div>
                             </div>
@@ -276,9 +289,9 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
             alert("装修价格输入错误");
             return false;
         }
-        if(form.redecoratedDescribe==null||form.redecoratedDescribe.value=="" || cot>150)
+        if(form.redecoratedDescribe==null||form.redecoratedDescribe.value=="" || cot>800)
         {
-            alert("输入错误：详细描述为空或输入字符超过150");
+            alert("输入错误：详细描述为空或输入字符超过800");
             return false;
         }
 

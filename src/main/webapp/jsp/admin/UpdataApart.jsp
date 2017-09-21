@@ -128,6 +128,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <li>
                             <a href="ReplyContact.jsp">用户提交的问题</a>
                         </li>
+                        <li>
+                            <a href="UpdateFAQ.jsp">常见问题管理</a>
+                        </li>
+
 
                     </ul>
                 </li>
@@ -181,7 +185,12 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                                         </div>
                                     <div class="form-group">
                                         <label>房源所在楼层</label>
-                                        <input class="form-control" name="rentHouseFloor" />
+                                        <%--<input class="form-control" name="rentHouseFloor" />--%>
+                                        <select class="form-control" name="rentHouseFloor">
+                                            <option>低层</option>
+                                            <option>中层</option>
+                                            <option>高层</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>楼盘总层数</label>
@@ -246,7 +255,16 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                                     <%--<input type="submit" class="btn btn-default">--%>
                                     <input type="submit" value="提交" onclick="return onCheck()"/>
                                     <input type="reset" value="取消"/>
-
+                                    <div class="form-group">
+                                        <%
+                                            if (session.getAttribute("Info")!=null){
+                                        %>
+                                        <p><%=session.getAttribute("Info")%></p>
+                                        <%
+                                                session.removeAttribute("Info");
+                                            }
+                                        %>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +303,7 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
         var regphone = "^1[3|4|5|8][0-9]\\d{8}$";//电话号码正则表达式
         var rephone = new RegExp(regphone);//电话号码
 
-        var Redecorated = form.rentHouseRedecorated.value;
+        var Redecorated = form.rentHouseBedroom.value;
         var regRedecorated = "^(0|[1-9][0-9]*)$";//整数正则表达式
         var reRedecorated = new RegExp(regRedecorated);//卧室数量
 
@@ -299,7 +317,7 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
 
         var Price = form.rentHousePrice.value;
         var regPrice = "^(0|[1-9][0-9]*)$";//整数正则表达式
-        var rePrice = new RegExp(regPrice);//卫生间数量
+        var rePrice = new RegExp(regPrice);//价格
 
         var Describe = form.rentHouseDescribe.value;//详细描述
         var cot = Describe.length;
@@ -344,12 +362,7 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
             alert("装修情况不能为空");
             return false;
         }
-        if(form.rentHouseRedecorated==null||form.rentHouseRedecorated.value=="")
-        {
-            alert("卧室数量不能为空");
-            return false;
-        }
-        if(!(form.rentHouseRedecorated==null||form.rentHouseRedecorated.value==""))
+        if(!(form.rentHouseBedroom==null||form.rentHouseBedroom.value==""))
         {
 
             if(!reRedecorated.test(Redecorated))
@@ -376,9 +389,9 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                 return false;
             }
         }
-        if(form.rentHouseDescribe==null||form.rentHouseDescribe.value=="" || cot>150)
+        if(form.rentHouseDescribe==null||form.rentHouseDescribe.value=="" || cot>800)
         {
-            alert("输入错误：房源详情为空或输入字符超过150");
+            alert("输入错误：房源详情为空或输入字符超过800");
             return false;
         }
 

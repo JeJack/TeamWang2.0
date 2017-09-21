@@ -57,14 +57,7 @@
                         <li><a href="forum.jsp">业主论坛</a></li>
                         <li class="current-menu-item"><a href="redecoratedForum.jsp">装修论坛</a></li>
                         <li><a href="faq.jsp">常见问题</a></li>
-                        <li><a href="#">更多</a>
-                            <ul class="sub-menu">
-                                <li><a href="full-width.html">Full Width</a></li>
-                                <li><a href="elements.html">Elements</a></li>
-                                <li><a href="page.html">Sample Page</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="contactUs.jsp">联系我们</a></li>
                     </ul>
                 </div>
             </nav>
@@ -93,7 +86,7 @@
             <div class="span8 page-content">
                 <%
                     OwnerTopicDao ownerTopicDao = new OwnerTopicDao();
-                    ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic();
+                    ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic("redecorated");
                 %>
                 <!-- Basic Home Page Template -->
                 <div class="row separator">
@@ -101,12 +94,11 @@
                         <h3>热门贴子</h3>
                         <ul class="articles">
                             <%
-                                for (int i=0;i<ownerTopics.size();i++){
+                                for (int i=0;null!=ownerTopics&&i<ownerTopics.size();i++){
                             %>
                             <li class="article-entry standard">
-                                <h4><a href="single.html"><%=ownerTopics.get(i).getOwnerTopicTheme()%></a></h4>
+                                <h4><a href="topicDetails.jsp?id=<%=ownerTopics.get(i).getOwnerTopicId()%>"><%=ownerTopics.get(i).getOwnerTopicTheme()%></a></h4>
                                 <span class="article-meta"><%=ownerTopics.get(i).getOwnerTopicTime()%> <a href="#" ></a></span>
-                                <span class="like-count">66</span>
                             </li>
                             <%
                                 }
@@ -119,12 +111,12 @@
                         <h3>最新帖子</h3>
                         <ul class="articles">
                             <%
-                                for (int i=0;i<ownerTopics.size();i++){
+                                ownerTopics = ownerTopicDao.getAllOwnerTopicDESC("redecorated");
+                                for (int i=0;ownerTopics.size()>i;i++){
                             %>
                             <li class="article-entry standard">
-                                <h4><a href="single.html"><%=ownerTopics.get(i).getOwnerTopicTheme()%></a></h4>
+                                <h4><a href="topicDetails.jsp?id=<%=ownerTopics.get(i).getOwnerTopicId()%>"><%=ownerTopics.get(i).getOwnerTopicTheme()%></a></h4>
                                 <span class="article-meta"><%=ownerTopics.get(i).getOwnerTopicTime()%> <a href="#" ></a></span>
-                                <span class="like-count">66</span>
                             </li>
                             <%
                                 }
@@ -139,11 +131,10 @@
 
             <!-- start of sidebar -->
             <aside class="span4 page-sidebar">
-
                 <section class="widget">
                     <div class="support-widget">
-                        <h3 class="title">联系我们</h3>
-                        <p class="intro">如果你有任何问题、意见或建议，请联系我们。</p>
+                        <a href="publishForum.jsp"><h3 class="title">发表贴子</h3></a>
+                        <p class="intro">欢迎您来发表贴子</p>
                     </div>
                 </section>
 
@@ -155,33 +146,8 @@
                             <li><a href="forum.jsp">业主论坛</a></li>
                             <li><a href="redecoratedForum.jsp">装修论坛</a></li>
                             <li><a href="faq.jsp">常见问题</a></li>
-                            <li><a href="contact.html">联系我们</a></li>
+                            <li><a href="contactUs.jsp">联系我们</a></li>
                         </ul>
-                    </div>
-                </section>
-
-                <section class="widget">
-                    <h3 class="title">关键字</h3>
-                    <div class="tagcloud">
-                        <a href="#" class="btn btn-mini">楼盘信息</a>
-                        <a href="#" class="btn btn-mini">二手房</a>
-                        <a href="#" class="btn btn-mini">出租</a>
-                        <a href="#" class="btn btn-mini">抢优惠</a>
-                        <a href="#" class="btn btn-mini">装修</a>
-                        <a href="#" class="btn btn-mini">短租</a>
-                        <a href="#" class="btn btn-mini">房价</a>
-                        <a href="#" class="btn btn-mini">房源</a>
-                        <a href="#" class="btn btn-mini">金融贷款</a>
-                        <a href="#" class="btn btn-mini">加盟</a>
-                        <a href="#" class="btn btn-mini">热门楼盘</a>
-                        <a href="#" class="btn btn-mini">新房</a>
-                        <a href="#" class="btn btn-mini">新盘</a>
-                        <a href="#" class="btn btn-mini">口碑</a>
-                        <a href="#" class="btn btn-mini">户型</a>
-                        <a href="#" class="btn btn-mini">人气</a>
-                        <a href="#" class="btn btn-mini">热卖</a>
-                        <a href="#" class="btn btn-mini">设计</a>
-                        <a href="#" class="btn btn-mini">装饰</a>
                     </div>
                 </section>
 
@@ -191,10 +157,6 @@
     </div>
 </div>
 <!-- End of Page Container -->
-
-<!-- Start of Footer -->
-
-<!-- end of #footer -->
 
 <!-- Footer Bottom -->
 <div id="footer-bottom-wrapper">

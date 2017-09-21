@@ -23,12 +23,13 @@
 
            buildingImageDao.deleteBuildingImageByBuildingId(building.getBuildingId());
            userCollectionDao.deleteUserCollectionByBuildingId(building.getBuildingId());
-           session.setAttribute("Info","reho数据删除成功");
-           request.getRequestDispatcher("test.jsp").forward(request,response);
+           session.setAttribute("Info","楼盘数据删除成功");
+           response.sendRedirect("../admin/DeleteBuilding.jsp");
+           return;
        }
        else{
-           session.setAttribute("Info","reho数据删除失败");
-           request.getRequestDispatcher("test.jsp").forward(request,response);
+           session.setAttribute("Info","楼盘数据删除失败，请重试！");
+           response.sendRedirect("../admin/DeleteBuilding.jsp");
        }
     }
 %>

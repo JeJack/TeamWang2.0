@@ -21,18 +21,15 @@
     {
         session.setAttribute("Info","修改失败，有必填字段为空，请重试.");
         response.sendRedirect("../userCenter/modifyuserInfo.jsp");
-//        request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
     }else{
 
         if (usersDao.createUserInfoSql(userCreateInfo)){
             session.setAttribute("Info","修改成功");
             response.sendRedirect("../userCenter/modifyuserInfo.jsp");
-//            request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
         }
         else{
             session.setAttribute("Info","修改失败，请重试");
             response.sendRedirect("../userCenter/modifyuserInfo.jsp");
-//            request.getRequestDispatcher("../userCenter/modifyuserInfo.jsp").forward(request,response);
         }
     }
 %>

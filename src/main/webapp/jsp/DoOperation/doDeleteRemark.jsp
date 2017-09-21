@@ -18,12 +18,13 @@
     OwnerTopicCommentDao ownerTopicCommentDao = new OwnerTopicCommentDao();
     if (ownerTopic!=null){
         if (ownerTopicDao.deleteOwnerTopicByOwnerTopicId(ownerTopic.getOwnerTopicId())&&ownerTopicCommentDao.deleteOwnerTopicCommentByOwnerTopicId(ownerTopic.getOwnerTopicId())){
-            session.setAttribute("Info","reho数据删除成功");
-            request.getRequestDispatcher("test.jsp").forward(request,response);
+            session.setAttribute("Info","论坛数据删除成功");
+            response.sendRedirect("../admin/DeleteRemark.jsp");
+            return;
         }
         else{
-            session.setAttribute("Info","reho数据删除失败");
-            request.getRequestDispatcher("test.jsp").forward(request,response);
+            session.setAttribute("Info","论坛数据删除失败，请重试！！");
+            response.sendRedirect("../admin/DeleteRemark.jsp");
         }
     }
 %>

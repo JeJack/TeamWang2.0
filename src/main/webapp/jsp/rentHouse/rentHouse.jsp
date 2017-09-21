@@ -34,6 +34,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/default.css" />
     <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -67,7 +70,7 @@
                         <li><a class="active" href="rentHouse.jsp">租房</a></li>
                         <li><a href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
-                        <div class="clearfix"> </div>
+                        <%--<div class="clearfix"></div>--%>
                     </ul>
                     <!-- script-for-menu -->
                     <script>
@@ -109,163 +112,66 @@
 <!--header end here-->
 <!--renthouse start here-->
 
-
-<nav id="cbp-hrmenu" class="cbp-hrmenu" style=" margin-top: 10px" >
-    <ul>
-        <li>
-            <a href="#">客厅</a>
-            <div class="cbp-hrsub" style="z-index: 1000">
-                <div class="cbp-hrsub-inner">
-                    <div>
-                        <h4>&古典系&</h4>
-                        <ul>
-                            <li><a href="#">新古典风格</a></li>
-                            <li><a href="#">欧美风情</a></li>
-                            <li><a href="#">田园风格</a></li>
-                            <li><a href="#">中式古典</a></li>
-                            <li><a href="#">日韩风格</a></li>
-                            <li><a href="#">西式古典</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>&简约派&</h4>
-                        <ul>
-                            <li><a href="#">东南亚风格</a></li>
-                            <li><a href="#">地中海风格</a></li>
-                            <li><a href="#">简欧风格</a></li>
-                            <li><a href="#">现代简约</a></li>
-                            <li><a href="#">中式风格</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>其他</h4>
-                        <ul>
-                            <li><a href="#">其他</a></li>
-                        </ul>
-                    </div>
-                </div><!-- /cbp-hrsub-inner -->
-            </div><!-- /cbp-hrsub -->
-        </li>
-        <li>
-            <a href="#">厨房</a>
-            <div class="cbp-hrsub" style="z-index: 1000">
-                <div class="cbp-hrsub-inner">
-                    <div>
-                        <h4>&古典系&</h4>
-                        <ul>
-                            <li><a href="#">新古典风格</a></li>
-                            <li><a href="#">欧美风情</a></li>
-                            <li><a href="#">田园风格</a></li>
-                            <li><a href="#">中式古典</a></li>
-                            <li><a href="#">日韩风格</a></li>
-                            <li><a href="#">西式古典</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>&简约派&</h4>
-                        <ul>
-                            <li><a href="#">东南亚风格</a></li>
-                            <li><a href="#">地中海风格</a></li>
-                            <li><a href="#">简欧风格</a></li>
-                            <li><a href="#">现代简约</a></li>
-                            <li><a href="#">中式风格</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>其他</h4>
-                        <ul>
-                            <li><a href="#">其他</a></li>
-                        </ul>
-                    </div>
-                </div><!-- /cbp-hrsub-inner -->
-            </div><!-- /cbp-hrsub -->
-        </li>
-        <li>
-            <a href="#">卧室</a>
-            <div class="cbp-hrsub" style="z-index: 1000">
-                <div class="cbp-hrsub-inner">
-                    <div>
-                        <h4>&古典系&</h4>
-                        <ul>
-                            <li><a href="#">新古典风格</a></li>
-                            <li><a href="#">欧美风情</a></li>
-                            <li><a href="#">田园风格</a></li>
-                            <li><a href="#">中式古典</a></li>
-                            <li><a href="#">日韩风格</a></li>
-                            <li><a href="#">西式古典</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>&简约派&</h4>
-                        <ul>
-                            <li><a href="#">东南亚风格</a></li>
-                            <li><a href="#">地中海风格</a></li>
-                            <li><a href="#">简欧风格</a></li>
-                            <li><a href="#">现代简约</a></li>
-                            <li><a href="#">中式风格</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>其他</h4>
-                        <ul>
-                            <li><a href="#">其他</a></li>
-                        </ul>
-                    </div>
-                </div><!-- /cbp-hrsub-inner -->
-            </div><!-- /cbp-hrsub -->
-        </li>
-        <li>
-            <a href="#">卫生间</a>
-            <div class="cbp-hrsub" style="z-index: 1000">
-                <div class="cbp-hrsub-inner">
-                    <div>
-                        <h4>&古典系&</h4>
-                        <ul>
-                            <li><a href="#">新古典风格</a></li>
-                            <li><a href="#">欧美风情</a></li>
-                            <li><a href="#">田园风格</a></li>
-                            <li><a href="#">中式古典</a></li>
-                            <li><a href="#">日韩风格</a></li>
-                            <li><a href="#">西式古典</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>&简约派&</h4>
-                        <ul>
-                            <li><a href="#">东南亚风格</a></li>
-                            <li><a href="#">地中海风格</a></li>
-                            <li><a href="#">简欧风格</a></li>
-                            <li><a href="#">现代简约</a></li>
-                            <li><a href="#">中式风格</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>其他</h4>
-                        <ul>
-                            <li><a href="#">其他</a></li>
-                        </ul>
-                    </div>
-                </div><!-- /cbp-hrsub-inner -->
-            </div><!-- /cbp-hrsub -->
-        </li>
-    </ul>
-</nav>
-
 <!--renthouse end here-->
 
 <!--renthouse_info start here-->
-<h1>房源展示</h1>
 <hr>
 
 <!--services start here-->
 <div class="services">
     <div class="container">
+        <form action="doRentHouseClass.jsp" method="post">
+            <ul class="nav nav-tabs">
+                <li class="active"><a>区域</a></li>
+                <li><a ><input type="radio" name="rentHouseDistrict" checked="checked" value="不限">不限</a></li>
+                <li><a ><input type="radio" name="rentHouseDistrict" value="盘龙区" >盘龙区</a></li>
+                <li><a><input type="radio" name="rentHouseDistrict" value="五华区" >五华区</a></li>
+                <li><a><input type="radio" name="rentHouseDistrict" value="官渡区">官渡区</a></li>
+                <li><a><input type="radio" name="rentHouseDistrict" value="西山区">西山区</a></li>
+                <li><a ><input type="radio" name="rentHouseDistrict" value="呈贡区" >呈贡区</a></li>
+            </ul>
+            <ul class="nav nav-tabs">
+                <li class="active"><a >租金</a></li>
+                <li><a ><input type="radio" name="rentHousePrice" value="0"  checked="checked">不限</a></li>
+                <li><a ><input type="radio" name="rentHousePrice" value="2000">2000以下</a></li>
+                <li><a ><input type="radio" name="rentHousePrice" value="3000">2000-3000</a></li>
+                <li><a ><input type="radio" name="rentHousePrice" value="4000">3000-4000</a></li>
+                <li><a><input type="radio" name="rentHousePrice" value="5000">4000-5000</a></li>
+                <li><a><input type="radio" name="rentHousePrice" value="5001">5000以上</a></li>
+            </ul>
+            <ul class="nav nav-tabs">
+                <li class="active"><a >户型</a></li>
+                <li><a ><input type="radio" name="rentHouseBedroom" value="0"  checked="checked">不限</a></li>
+                <li><a ><input type="radio" name="rentHouseBedroom" value="1">一居</a></li>
+                <li><a ><input type="radio" name="rentHouseBedroom" value="2">两居</a></li>
+                <li><a ><input type="radio" name="rentHouseBedroom" value="3">三居</a></li>
+                <li><a ><input type="radio" name="rentHouseBedroom" value="4">四居</a></li>
+                <li><a><input type="radio" name="rentHouseBedroom" value="5">四居以上</a></li>
+            </ul>
+            <ul class="nav nav-tabs">
+                <li class="active"><a>楼层</a></li>
+                <li><a><input type="radio" name="rentHouseFloor" value="不限" checked="checked">不限</a></li>
+                <li><a><input type="radio" name="rentHouseFloor" value="低层">低层</a></li>
+                <li><a><input type="radio" name="rentHouseFloor" value="中层">中层</a></li>
+                <li><a ><input type="radio" name="rentHouseFloor" value="高层">高层</a></li>
+            </ul>
+            <ul class="nav nav-tabs">
+                <li class="active"><a>检索</a></li>
+                <li><a><input type="submit" value="检索"></a></li>
+            </ul>
+        </form>
+
         <div class="services-main">
             <div class="services-bottom">
                 <!-- 租房信息循环开始 -->
                 <%
                     RentHouseDao renthouseDao = new RentHouseDao();
-                    ArrayList<RentHouse> list = renthouseDao.getAllRentHouse();
+                    ArrayList<RentHouse> list = new ArrayList<>();
+                    if (session.getAttribute("rentHouses")!=null){
+                        list=(ArrayList<RentHouse>)session.getAttribute("rentHouses");
+                    }else{
+                        list = renthouseDao.getAllRentHouse();
+                    }
                     if(list!=null&&list.size()>0)
                     {
                         int MaxYe= (new Double(Math.ceil((list.size()+1)/6.0))).intValue();
@@ -273,7 +179,7 @@
                         String YY = request.getParameter("yeid");
                         if(YY!=null){
                             try {
-                                ye = Integer.parseInt(YY)+1;
+                                ye = Integer.parseInt(YY);
                             } catch (NumberFormatException e) {
                                 e.printStackTrace();
                             }
@@ -314,11 +220,11 @@
                 %>
                 <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
                     <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
-                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
+                    <a style="color: #755cce;text-decoration:none">共<%=MaxYe-1%>页</a>
                     <%
-                        for (int MY=0;MY<MaxYe;MY++){
+                        for (int MY=1;MY<MaxYe;MY++){
                     %>
-                    <a href="rentHouse.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
+                    <a href="rentHouse.jsp?yeid=<%=MY%>" style="color: #755cce;text-decoration:none"><%=MY %>&nbsp;</a>
                     <%
                         }
                     %>

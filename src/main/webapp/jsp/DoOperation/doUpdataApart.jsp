@@ -12,9 +12,6 @@
     request.setCharacterEncoding("utf-8");
 %>
 <%
-    request.setCharacterEncoding("utf-8");
-%>
-<%
     AdministratorDao administratorDao = new AdministratorDao();
     if (session.getAttribute("administratorName")!=null){
         Administrator administrator = administratorDao.getAdministratorsByName(session.getAttribute("administratorName").toString());
@@ -29,10 +26,11 @@
         RentHouse rentHouse = rentHouseDao.getRentHouseByNamePhone(rentHouseInfo);
         session.setAttribute("rentHouseId",rentHouse.getRentHouseId());
         response.sendRedirect("../admin/UpdatePhoto.jsp");
+        return;
     }
     else{
-        session.setAttribute("Info","数据上传失败");
-        request.getRequestDispatcher("test.jsp").forward(request,response);
+        session.setAttribute("Info","数据上传失败,请重试！！！");
+        response.sendRedirect("../admin/UpdataApart.jsp");
     }
 %>
 

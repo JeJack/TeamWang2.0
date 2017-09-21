@@ -61,7 +61,8 @@
                 <div class="menu-top-menu-container">
                     <ul id="menu-top-menu" class="clearfix">
                         <li ><a href="../homePage.jsp">主页</a></li>
-                        <li><a href="forum.jsp">论坛主页</a></li>
+                        <li><a href="forum.jsp">业主论坛</a></li>
+                        <li><a href="redecoratedForum.jsp">装修论坛</a></li>
                         <li class="current-menu-item"><a href="faq.jsp">常见问题</a></li>
                         <li><a href="contactUs.jsp">联系我们</a></li>
                     </ul>

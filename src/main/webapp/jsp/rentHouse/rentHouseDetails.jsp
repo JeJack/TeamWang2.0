@@ -35,6 +35,12 @@
     <!--Google Fonts-->
     <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/move-top.js"></script>
@@ -66,7 +72,7 @@
                         <li><a class="active" href="rentHouse.jsp">租房</a></li>
                         <li><a href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
-                        <div class="clearfix"> </div>
+                        <%--<div class="clearfix"> </div>--%>
                     </ul>
                     <!-- script-for-menu -->
                     <script>

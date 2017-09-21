@@ -68,21 +68,14 @@
                 <div class="menu-top-menu-container">
                     <ul id="menu-top-menu" class="clearfix">
                         <li ><a href="../homePage.jsp">主页</a></li>
-                        <li ><a href="forum.jsp">论坛主页</a></li>
+                        <li><a href="forum.jsp">业主论坛</a></li>
+                        <li><a href="redecoratedForum.jsp">装修论坛</a></li>
                         <li><a href="faq.jsp">常见问题</a></li>
-                        <%--<li><a href="#">更多</a>--%>
-                            <%--<ul class="sub-menu">--%>
-                                <%--<li><a href="full-width.html">Full Width</a></li>--%>
-                                <%--<li><a href="elements.html">Elements</a></li>--%>
-                                <%--<li><a href="page.html">Sample Page</a></li>--%>
-                            <%--</ul>--%>
-                        <%--</li>--%>
-                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="contactUs.jsp">联系我们</a></li>
                     </ul>
                 </div>
             </nav>
             <!-- End of Main Navigation -->
-
         </div>
     </header>
 </div>
@@ -104,9 +97,7 @@
             <!-- start of page content -->
             <div class="span8 page-content">
                 <ul class="breadcrumb">
-                    <%--<li><a href="#">Knowledge Base Theme</a><span class="divider">/</span></li>--%>
-                    <%--<li><a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a> <span class="divider">/</span></li>--%>
-                    <li class="active"><%=ownerTopic.getOwnerTopicTheme()%></li>
+                   <li class="active"><%=ownerTopic.getOwnerTopicTheme()%></li>
                 </ul>
                 <article class=" type-post format-standard hentry clearfix">
 
@@ -114,23 +105,9 @@
 
                     <div class="post-meta clearfix">
                         <span class="date"><%=ownerTopic.getOwnerTopicTime()%></span>
-                        <span class="like-count">66</span>
                     </div><!-- end of post meta -->
                     <p><%=ownerTopic.getOwnerTopic()%></p>
                 </article>
-
-                <div class="like-btn">
-
-                    <form id="like-it-form" action="#" method="post">
-                        <span class="like-it ">66</span>
-                        <input type="hidden" name="post_id" value="99">
-                        <input type="hidden" name="action" value="like_it">
-                    </form>
-
-                    <span class="tags">
-                        <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">basic</a>, <a href="#" rel="tag">setting</a>, <a href="http://knowledgebase.inspirythemes.com/tag/website/" rel="tag">website</a>
-                    </span>
-                </div>
                 <section id="comments">
                     <h3 id="comments-title">网友评论</h3>
                     <ol class="commentlist">
@@ -205,13 +182,13 @@
                     <h3 class="title">精选贴子</h3>
                     <ul class="articles">
                         <%
-                            ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic();
+                            ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic("owner");
                             for (int i=0;null!=ownerTopics&&i<ownerTopics.size();i++){
                         %>
                         <li class="article-entry standard">
                             <h4><a href="topicDetails.jsp?id=<%=ownerTopics.get(i).getOwnerTopicId()%>"><%=ownerTopics.get(i).getOwnerTopicTheme()%></a></h4>
                             <span class="article-meta"><%=ownerTopics.get(i).getOwnerTopicTime()%> <a href="#" ></a></span>
-                            <span class="like-count">66</span>
+                            <%--<span class="like-count">66</span>--%>
                         </li>
                         <%
                             }

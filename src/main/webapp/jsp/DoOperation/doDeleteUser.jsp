@@ -16,12 +16,13 @@
     Users users = usersDao.getUsersByName(request.getParameter("username"));
     if (users!=null){
         if (usersDao.deleteUserByUserName(users.getUserName())){
-            session.setAttribute("Info","reho数据删除成功");
-            request.getRequestDispatcher("test.jsp").forward(request,response);
+            session.setAttribute("Info","用户数据删除成功");
+            response.sendRedirect("../admin/DeleteUser.jsp");
+            return;
         }
         else{
-            session.setAttribute("Info","reho数据删除失败");
-            request.getRequestDispatcher("test.jsp").forward(request,response);
+            session.setAttribute("Info","用户数据删除失败，请重试！！！");
+            response.sendRedirect("../admin/DeleteUser.jsp");
         }
     }
 %>

@@ -29,6 +29,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/default.css" />
     <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/move-top.js"></script>
@@ -60,7 +63,7 @@
                         <li><a href="../rentHouse/rentHouse.jsp">租房</a></li>
                         <li><a class="active" href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
-                        <div class="clearfix"> </div>
+                        <%--<div class="clearfix"> </div>--%>
                     </ul>
                     <!-- script-for-menu -->
                     <script>
@@ -108,89 +111,88 @@
     ArrayList<Redecorated> redecorateds= redecoratedDao.getAllRedecorated();
 %>
 
-<div class="chooseInfo">
-    <nav id="cbp-hrmenu" class="cbp-hrmenu" style=" margin-top: 10px" >
-        <ul>
-            <li>
-                <a href="#">客厅</a>
-                <div class="cbp-hrsub" style="z-index: 1000">
-                    <div class="cbp-hrsub-inner">
-                        <ul style="margin-top: 30px">
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="11"%>">现代</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="12"%>">简欧</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="13"%>">田园</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="14"%>">简约</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="15"%>">中式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="16"%>">欧式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="17"%>">混搭</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="18"%>">美式</a></li>
-                        </ul>
-                    </div><!-- /cbp-hrsub-inner -->
-                </div><!-- /cbp-hrsub -->
-            </li>
-            <li>
-                <a href="#">卧室</a>
-                <div class="cbp-hrsub" style="z-index: 1000">
-                    <div class="cbp-hrsub-inner">
-                        <ul style="margin-top: 30px">
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="21"%>">现代</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="22"%>">简欧</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="23"%>">田园</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="24"%>">简约</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="25"%>">中式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="26"%>">欧式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="27"%>">混搭</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="28"%>">美式</a></li>
-                        </ul>
-                    </div><!-- /cbp-hrsub-inner -->
-                </div><!-- /cbp-hrsub -->
-            </li>
-            <li>
-                <a href="#">厨房</a>
-                <div class="cbp-hrsub" style="z-index: 1000">
-                    <div class="cbp-hrsub-inner">
-                        <ul style="margin-top: 30px">
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="31"%>">现代</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="32"%>">简欧</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="33"%>">田园</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="34"%>">简约</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="35"%>">中式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="36"%>">欧式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="37"%>">混搭</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="38"%>">美式</a></li>
-                        </ul>
-                    </div><!-- /cbp-hrsub-inner -->
-                </div><!-- /cbp-hrsub -->
-            </li>
-            <li>
-                <a href="#">卫浴</a>
-                <div class="cbp-hrsub" style="z-index: 1000">
-                    <div class="cbp-hrsub-inner">
-                        <ul style="margin-top: 30px">
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="41"%>">现代</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="42"%>">简欧</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="43"%>">田园</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="44"%>">简约</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="45"%>">中式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="46"%>">欧式</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="47"%>">混搭</a></li>
-                            <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="48"%>">美式</a></li>
-                        </ul>
-                    </div><!-- /cbp-hrsub-inner -->
-                </div><!-- /cbp-hrsub -->
-            </li>
-        </ul>
-    </nav>
-
-</div>
-<!--renthouse end here-->
-
 <!--renthouse_info start here-->
 <hr>
 
 <!--services start here-->
 <div class="services">
     <div class="container">
+        <div class="chooseInfo">
+            <nav id="cbp-hrmenu" class="cbp-hrmenu" style=" margin-top: 10px" >
+                <ul>
+                    <li>
+                        <a href="#">客厅</a>
+                        <div class="cbp-hrsub" style="z-index: 1000">
+                            <div class="cbp-hrsub-inner">
+                                <ul style="margin-top: 30px">
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="11"%>">现代</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="12"%>">简欧</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="13"%>">田园</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="14"%>">简约</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="15"%>">中式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="16"%>">欧式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="17"%>">混搭</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="18"%>">美式</a></li>
+                                </ul>
+                            </div><!-- /cbp-hrsub-inner -->
+                        </div><!-- /cbp-hrsub -->
+                    </li>
+                    <li>
+                        <a href="#">卧室</a>
+                        <div class="cbp-hrsub" style="z-index: 1000">
+                            <div class="cbp-hrsub-inner">
+                                <ul style="margin-top: 30px">
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="21"%>">现代</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="22"%>">简欧</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="23"%>">田园</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="24"%>">简约</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="25"%>">中式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="26"%>">欧式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="27"%>">混搭</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="28"%>">美式</a></li>
+                                </ul>
+                            </div><!-- /cbp-hrsub-inner -->
+                        </div><!-- /cbp-hrsub -->
+                    </li>
+                    <li>
+                        <a href="#">厨房</a>
+                        <div class="cbp-hrsub" style="z-index: 1000">
+                            <div class="cbp-hrsub-inner">
+                                <ul style="margin-top: 30px">
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="31"%>">现代</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="32"%>">简欧</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="33"%>">田园</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="34"%>">简约</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="35"%>">中式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="36"%>">欧式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="37"%>">混搭</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="38"%>">美式</a></li>
+                                </ul>
+                            </div><!-- /cbp-hrsub-inner -->
+                        </div><!-- /cbp-hrsub -->
+                    </li>
+                    <li>
+                        <a href="#">卫浴</a>
+                        <div class="cbp-hrsub" style="z-index: 1000">
+                            <div class="cbp-hrsub-inner">
+                                <ul style="margin-top: 30px">
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="41"%>">现代</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="42"%>">简欧</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="43"%>">田园</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="44"%>">简约</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="45"%>">中式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="46"%>">欧式</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="47"%>">混搭</a></li>
+                                    <li style="float: left;list-style: none;margin: 5px"><a href="redecorated.jsp?fsid=<%="48"%>">美式</a></li>
+                                </ul>
+                            </div><!-- /cbp-hrsub-inner -->
+                        </div><!-- /cbp-hrsub -->
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
         <div class="services-main">
             <div class="services-bottom">
                 <!-- 装修展示循环开始 -->
@@ -240,7 +242,7 @@
                         String YY = request.getParameter("yeid");
                         if(YY!=null){
                             try {
-                                ye = Integer.parseInt(YY)+1;
+                                ye = Integer.parseInt(YY);
                             } catch (NumberFormatException e) {
                                 e.printStackTrace();
                             }
@@ -278,9 +280,9 @@
                     %>
                 <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
                     <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
-                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
+                    <a style="color: black;text-decoration:none">共<%=MaxYe-1%>页</a>
                     <%
-                        for (int MY=0;MY<MaxYe;MY++){
+                        for (int MY=1;MY<MaxYe;MY++){
                     %>
                     <a href="redecorated.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
                     <%

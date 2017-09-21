@@ -18,7 +18,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>论坛主页</title>
+    <title>业主论坛</title>
 
     <link rel="shortcut icon" href="../../images/logo.jpg" />
 
@@ -54,7 +54,8 @@
                 <div class="menu-top-menu-container">
                     <ul id="menu-top-menu" class="clearfix">
                         <li ><a href="../homePage.jsp">主页</a></li>
-                        <li class="current-menu-item"><a href="forum.jsp">论坛主页</a></li>
+                        <li class="current-menu-item"><a href="forum.jsp">业主论坛</a></li>
+                        <li><a href="redecoratedForum.jsp">装修论坛</a></li>
                         <li><a href="faq.jsp">常见问题</a></li>
                         <li><a href="contactUs.jsp">联系我们</a></li>
                     </ul>
@@ -91,7 +92,7 @@
             <div class="span8 page-content">
                 <%
                     OwnerTopicDao ownerTopicDao = new OwnerTopicDao();
-                    ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic();
+                    ArrayList<OwnerTopic> ownerTopics = ownerTopicDao.getAllOwnerTopic("owner");
                 %>
                 <!-- Basic Home Page Template -->
                 <div class="row separator">
@@ -117,6 +118,7 @@
                         <h3>最新帖子</h3>
                         <ul class="articles">
                             <%
+                                ownerTopics = ownerTopicDao.getAllOwnerTopicDESC("owner");
                                 for (int i=0;ownerTopics.size()>i;i++){
                             %>
                             <li class="article-entry standard">
@@ -136,7 +138,6 @@
 
             <!-- start of sidebar -->
             <aside class="span4 page-sidebar">
-
                 <section class="widget">
                     <div class="support-widget">
                         <a href="publishForum.jsp"><h3 class="title">发表贴子</h3></a>

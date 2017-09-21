@@ -35,6 +35,9 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/default.css" />
     <link rel="stylesheet" type="text/css" href="../../css/component.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- start-smoth-scrolling -->
     <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -68,7 +71,7 @@
                         <li><a href="../rentHouse/rentHouse.jsp">租房</a></li>
                         <li><a href="../redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="../comment/forum.jsp">论坛</a></li>
-                        <div class="clearfix"> </div>
+                        <%--<div class="clearfix"> </div>--%>
                     </ul>
                     <!-- script-for-menu -->
                     <script>
@@ -109,66 +112,63 @@
     </div>
 </div>
 <!--header end here-->
-<!--renthouse start here-->
-
-<div class="demo">
-    <div class="sx">
-        <span>分类1：</span>
-        <a rel="1" class="sx_child" name="aaa" href="javascript:;">阿迪达斯</a>
-        <a rel="2" class="sx_child" name="aaa" href="javascript:;">李宁</a>
-        <a rel="3" class="sx_child" name="aaa" href="javascript:;">耐克</a>
-        <a rel="4" class="sx_child" name="aaa" href="javascript:;">乔丹</a>
-    </div>
-    <div class="sx">
-        <span>分类2：</span>
-        <a rel="1" class="sx_child" name="bbb" href="javascript:;">福建</a>
-        <a rel="2" class="sx_child" name="bbb" href="javascript:;">广州</a>
-        <a rel="3" class="sx_child" name="bbb" href="javascript:;">上海</a>
-        <a rel="4" class="sx_child" name="bbb" href="javascript:;">北京</a>
-    </div>
-    <div class="sx">
-        <span>分类3：</span>
-        <a rel="1" class="sx_child" name="ccc" href="javascript:;">红色</a>
-        <a rel="2" class="sx_child" name="ccc" href="javascript:;">绿色</a>
-        <a rel="3" class="sx_child" name="ccc" href="javascript:;">黑色</a>
-        <a rel="4" class="sx_child" name="ccc" href="javascript:;">白色</a>
-    </div>
-    <div class="sx">
-        <span>分类4：</span>
-        <a rel="1" class="sx_child" name="ddd" href="javascript:;">100</a>
-        <a rel="2" class="sx_child" name="ddd" href="javascript:;">300</a>
-        <a rel="3" class="sx_child" name="ddd" href="javascript:;">400</a>
-        <a rel="4" class="sx_child" name="ddd" href="javascript:;">600</a>
-    </div>
-    <div class="zj">
-        <span>删选结果：</span>
-        <p class="qcqb">清除全部</p>
-    </div>
-</div>
-<script type="text/javascript" src="../../js/script.js"></script>
-<script type="text/javascript">
-    $('.sx').sx({
-        nuv:".zj",//筛选结果
-        zi:"sx_child",//所有筛选范围内的子类
-        qingchu:'.qcqb',//清除全部
-        over:'on'//选中状态样式名称
-    });
-</script>
-<!--renthouse end here-->
-
-<!--renthouse_info start here-->
-<h1>房源展示</h1>
-<hr>
-
 <!--services start here-->
 <div class="services">
     <div class="container">
+        <form action="doBuildingClass.jsp" method="post">
+        <ul class="nav nav-tabs">
+            <li class="active"><a>区域</a></li>
+            <li><a ><input type="radio" name="buildingDistrict" checked="checked" value="不限">不限</a></li>
+            <li><a ><input type="radio" name="buildingDistrict" value="盘龙区" >盘龙区</a></li>
+            <li><a><input type="radio" name="buildingDistrict" value="五华区" >五华区</a></li>
+            <li><a><input type="radio" name="buildingDistrict" value="官渡区">官渡区</a></li>
+            <li><a><input type="radio" name="buildingDistrict" value="西山区">西山区</a></li>
+            <li><a ><input type="radio" name="buildingDistrict" value="呈贡区" >呈贡区</a></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a >价格</a></li>
+            <li><a ><input type="radio" name="buildingPrice" value="0"  checked="checked">不限</a></li>
+            <li><a ><input type="radio" name="buildingPrice" value="4000">4000以下</a></li>
+            <li><a ><input type="radio" name="buildingPrice" value="6000">4000-6000</a></li>
+            <li><a ><input type="radio" name="buildingPrice" value="8000">6000-8000</a></li>
+            <li><a><input type="radio" name="buildingPrice" value="10000">8000-10000</a></li>
+            <li><a><input type="radio" name="buildingPrice" value="10001">10000以上</a></li>
+        </ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a >户型</a></li>
+            <li><a ><input type="radio" name="buildingBedroom" value="0"  checked="checked">不限</a></li>
+            <li><a ><input type="radio" name="buildingBedroom" value="1">一居</a></li>
+            <li><a ><input type="radio" name="buildingBedroom" value="2">两居</a></li>
+            <li><a ><input type="radio" name="buildingBedroom" value="3">三居</a></li>
+            <li><a ><input type="radio" name="buildingBedroom" value="4">四居</a></li>
+            <li><a><input type="radio" name="buildingBedroom" value="5">四居以上</a></li>
+        </ul>
+            <ul class="nav nav-tabs">
+                <li class="active"><a>楼层</a></li>
+                <li><a><input type="radio" name="buildingFloor" value="不限" checked="checked">不限</a></li>
+                <li><a><input type="radio" name="buildingFloor" value="低层">低层</a></li>
+                <li><a><input type="radio" name="buildingFloor" value="中层">中层</a></li>
+                <li><a ><input type="radio" name="buildingFloor" value="高层">高层</a></li>
+            </ul>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#">检索</a></li>
+            <li><a><input type="submit" value="检索"></a></li>
+        </ul>
+        </form>
+
+
         <div class="services-main">
             <div class="services-bottom">
                 <!-- 楼盘信息显示循环开始 -->
                 <%
                     BuildingDao buildDao = new BuildingDao();
-                    ArrayList<Building> list = buildDao.getAllBuilding();
+                    ArrayList<Building> list = new ArrayList<Building>();
+                    if (session.getAttribute("buildings")!=null){
+                        list = (ArrayList<Building>)session.getAttribute("buildings");
+                        session.removeAttribute("buildings");
+                    }else {
+                        list = buildDao.getAllBuilding();
+                    }
                     if(list!=null&&list.size()>0)
                     {
                         int MaxYe= (new Double(Math.ceil((list.size()+1)/6.0))).intValue();
@@ -176,7 +176,7 @@
                         String YY = request.getParameter("yeid");
                         if(YY!=null){
                             try {
-                                ye = Integer.parseInt(YY)+1;
+                                ye = Integer.parseInt(YY);
                             } catch (NumberFormatException e) {
                                 e.printStackTrace();
                             }
@@ -217,9 +217,9 @@
                 %>
                 <div class="fenye" style="font-size: 30px; text-align: center;margin-top: 20px;margin-bottom: 20px;">
                     <%--<a href="building.jsp?yeid=1" style="color: black">上一页</a>--%>
-                    <a style="color: black;text-decoration:none">共<%=MaxYe%>页</a>
+                    <a style="color: black;text-decoration:none">共<%=MaxYe-1%>页</a>
                     <%
-                        for (int MY=0;MY<MaxYe;MY++){
+                        for (int MY=1;MY<MaxYe;MY++){
                     %>
                     <a href="building.jsp?yeid=<%=MY%>" style="color: black;text-decoration:none"><%=MY %>&nbsp;</a>
                     <%

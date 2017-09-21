@@ -88,6 +88,9 @@
                 <div class="form-group">
                     <input type="submit" value="登录" onclick="return onCheck()"  class="btn btn-primary"/>
                 </div>
+                <div class="form-group">
+                   <p> <a href="registerMail.jsp" class="btn btn-primary">邮箱登录</a></p>
+                </div>
             </form>
             <!-- END Sign In Form -->
 

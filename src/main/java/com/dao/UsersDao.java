@@ -55,7 +55,6 @@ public class UsersDao {
     }
 
     public String usersCreateInfo(Users u){//判断传过来的用户信息，是否创建用户
-        u.setUserName("1222");
         if (null==u.getUserName()||u.getUserName().length()<=0) {
             return "dd";//"有必填字段为空，请检查";
         }
@@ -185,6 +184,62 @@ public class UsersDao {
         }
     }
 
+    public Users getUsersByEmail(String email) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Users user=new Users();//users 表的主键
+//        ArrayList<Users> userlist = new ArrayList<Users>();
+        try {
+            conn = DBHelper.getConnection();
+            String sql = "select * from UserInfo where userEmail=?;"; // SQL语句
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1,email);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                user.setUserId(rs.getInt("userId"));
+                user.setUserName(rs.getString("userName"));
+                user.setUserNickname(rs.getString("userNickname"));
+                user.setUserLoginPassword(rs.getString("userLoginPassword"));
+                user.setUserPhoneNum(rs.getString("userPhoneNum"));
+                user.setUserSex(rs.getString("userSex"));
+                user.setUserEmail(rs.getString("userEmail"));
+                user.setUserPhoto(rs.getString("userPhoto"));
+
+            }
+            else{
+                user=null;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            // 释放数据集对象
+            if (rs != null) {
+                try {
+                    rs.close();
+                    rs = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            // 释放语句对象
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        if (user!=null){
+            return user;
+        }else{
+            return null;
+        }
+    }
+
+
     public ArrayList<Users> getAllUsers(){
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -273,6 +328,37 @@ public class UsersDao {
             stmt.setString(1,u.getUserName());//可以把?替换成变量。
             stmt.setString(2,u.getUserLoginPassword());
             stmt.setString(3,u.getUserPhoneNum());
+            if(!stmt.execute()){
+                flag=true;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }finally {
+            if (stmt != null) {//释放语句对象
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+        return flag;
+
+    }
+
+    public boolean createUserByEmailSql(Users u){
+        //将用户信息插入数据库
+        boolean flag=false;
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try{
+            conn = DBHelper.getConnection();
+            String sql="insert into UserInfo(userName,userLoginPassword,userEmail) values(?,?,?)";
+            stmt = conn.prepareStatement(sql);//可以替换变量
+            stmt.setString(1,u.getUserName());//可以把?替换成变量。
+            stmt.setString(2,u.getUserEmail());
+            stmt.setString(3,u.getUserEmail());
             if(!stmt.execute()){
                 flag=true;
             }

@@ -14,7 +14,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>忘记密码</title>
+    <title>重置密码</title>
     <link rel="shortcut icon" href="../images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
@@ -50,7 +50,7 @@
 
 </head>
 <body class="style-3">
-<%--信息填写错误 Start--%>
+<%--验证信息以及修改密码信息 Start--%>
 <%
     String Info="";
     if (session.getAttribute("Info")!=null)
@@ -60,7 +60,7 @@
     }
 %>
 
-<%--信息填写错误 End--%>
+<%--验证信息以及修改密码信息 End--%>
 
 <div class="container">
     <div class="row"></div>
@@ -69,16 +69,24 @@
             <h2 style="color: rgba(208,40,123,0.8)"><%=Info%></h2>
 
             <!-- Start Sign In Form -->
-            <form action="doForget.jsp" name="form" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
-                <h2>验证邮箱找回密码</h2>
+            <form action="DoOperation/doRePassword.jsp" name="form" class="fh5co-form animate-box" data-animate-effect="fadeInRight" method="post">
+                <h2>重置密码</h2>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="userEmail" placeholder="请输入邮箱" autocomplete="off">
+                    <input type="password" class="form-control" name="userLoginPassword" placeholder="请输入密码" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="获取验证码" onclick="return onCheck()" class="btn btn-primary"/>
+                    <input type="password" class="form-control" name="passwordConfirm" placeholder="请再次输入密码" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <p>未注册？ <a href="register.jsp">点我注册</a> | <a href="login.jsp">点我登录</a></p>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="确认密码" onclick="return onCheck()"  class="btn btn-primary"/>
                 </div>
             </form>
             <!-- END Sign In Form -->
+
+
         </div>
     </div>
     <div class="row" style="padding-top: 60px; clear: both;"></div>
@@ -97,22 +105,17 @@
 <script type="text/javascript">
     function onCheck()
     {
-        var userName = form.userName.value;//用户名
-        var cot1 = userName.length;
+        if(form.userLoginPassword==null||form.userLoginPassword.value=="")
+        {
+            alert("密码不能为空");
+            return false;
+        }
+        if(form.userLoginPassword.value!=form.passwordConfirm.value)
+        {
+            alert("对不起，您2次输入的密码不一致");
+            return false;
+        }
 
-        var phone = form.userPhoneNum.value;
-        var regphone = "^1[3|4|5|8][0-9]\\d{8}$";//电话号码正则表达式
-        var rephone = new RegExp(regphone);//电话号码
-        if(!rephone.test(phone))
-        {
-            alert("手机号输入错误");
-            return false;
-        }
-        if(form.userName==null||form.userName.value=="" || cot1>9)
-        {
-            alert("输入错误:用户名为空或用户名长度超过8个字符");
-            return false;
-        }
         else
             return true;
     }

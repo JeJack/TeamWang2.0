@@ -128,6 +128,9 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <li>
                             <a href="ReplyContact.jsp">用户提交的问题</a>
                         </li>
+                        <li>
+                            <a href="UpdateFAQ.jsp">常见问题管理</a>
+                        </li>
 
                     </ul>
                 </li>
@@ -262,7 +265,12 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                                         </div>
                                         <div class="form-group has-warning">
                                             <label class="control-label" >所在楼层</label>
-                                            <input type="text" class="form-control" name="buildingFloor">
+                                            <%--<input type="text" class="form-control" name="buildingFloor">--%>
+                                            <select class="form-control" name="buildingFloor">
+                                                <option>低层</option>
+                                                <option>中层</option>
+                                                <option>高层</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <p>将信息提交之后才能上传图片</p>
@@ -273,6 +281,16 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                                     <input type="submit" value="提交" onclick="return onCheck()"/>
                                     <input type="reset" value="取消"/>
                                         <%--</form>--%>
+                                    <div class="form-group">
+                                        <%
+                                            if (session.getAttribute("Info")!=null){
+                                        %>
+                                        <p><%=session.getAttribute("Info")%></p>
+                                        <%
+                                                session.removeAttribute("Info");
+                                            }
+                                        %>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -414,24 +432,24 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
             return false;
         }
 
-        if(form.buildingCharacteristic==null||form.buildingCharacteristic.value=="" || cot1>150)
+        if(form.buildingCharacteristic==null||form.buildingCharacteristic.value=="" || cot1>800)
         {
-            alert("输入错误：特色介绍为空或输入字符超过150");
+            alert("输入错误：特色介绍为空或输入字符超过800");
             return false;
         }
-        if(form.buildingTrafficInfo==null||form.buildingTrafficInfo.value=="" || cot2>150)
+        if(form.buildingTrafficInfo==null||form.buildingTrafficInfo.value=="" || cot2>800)
         {
-            alert("输入错误：交通状况为空或输入字符超过150");
+            alert("输入错误：交通状况为空或输入字符超过800");
             return false;
         }
-        if(form.buildingProjectMatching==null||form.buildingProjectMatching.value=="" || cot3>150)
+        if(form.buildingProjectMatching==null||form.buildingProjectMatching.value=="" || cot3>800)
         {
-            alert("输入错误：配套项目为空或输入字符超过150");
+            alert("输入错误：配套项目为空或输入字符超过800");
             return false;
         }
-        if(form.buildingProjectBrief==null||form.buildingProjectBrief.value=="" || cot4>150)
+        if(form.buildingProjectBrief==null||form.buildingProjectBrief.value=="" || cot4>800)
         {
-            alert("输入错误：项目简介为空或输入字符超过150");
+            alert("输入错误：项目简介为空或输入字符超过800");
             return false;
         }
 

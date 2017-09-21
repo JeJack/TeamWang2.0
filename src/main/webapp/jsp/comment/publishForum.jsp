@@ -56,7 +56,7 @@
                 <div class="menu-top-menu-container">
                     <ul id="menu-top-menu" class="clearfix">
                         <li ><a href="../homePage.jsp">主页</a></li>
-                        <li class="current-menu-item"><a href="forum.jsp">业主论坛</a></li>
+                        <li><a href="forum.jsp">业主论坛</a></li>
                         <li><a href="redecoratedForum.jsp">装修论坛</a></li>
                         <li><a href="faq.jsp">常见问题</a></li>
                         <li><a href="contactUs.jsp">联系我们</a></li>
@@ -88,10 +88,19 @@
             <input type="text" style="height: 30px;width: 756px" name="ownerTopicTheme" placeholder="请填写标题">
         </div>
         <div>
-            <textarea class="span8" name="ownerTopic" cols="58" rows="10"></textarea>
+            <p>选择论坛</p>
+                <select   style="height: 30px;width: 756px;text-align: center" name="category" >
+                    <option>装修论坛贴子</option>
+                    <option >业主论坛贴子</option>
+                </select>
         </div>
-        <p class="comment-notes">网友评论仅供其表达个人看法，并不表明优购房立场。</p>
+        <div style="margin: auto; width:756px; height:210px; border:1px solid rgba(210,255,197,0.09)">
+            <textarea class="span8" name="ownerTopic" cols="58" rows="10" style="height: 210px;width: 756px;" placeholder="请输入您的贴子详情"></textarea>
+        </div>
         <div>
+            <p class="comment-notes">网友评论仅供其表达个人看法，并不表明优购房立场。</p>
+        </div>
+        <div style="margin:0 auto; width:46px; height:28px; border:1px solid #37ff4b;clear: both">
             <input name="submit" type="submit"  value="提交">
         </div>
     </form>

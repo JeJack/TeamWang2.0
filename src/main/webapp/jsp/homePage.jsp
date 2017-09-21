@@ -12,11 +12,6 @@
 <head>
 <title>主页</title>
 <link rel="shortcut icon" href="../images/logo.jpg" />
-<%--搜索条件筛选--%>
-<link rel="stylesheet" type="text/css" href="../css/style.css">
-<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<%--搜索条件筛选--%>
 <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="../js/jquery-1.11.0.min.js"></script>
@@ -32,9 +27,11 @@
 <link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" type="text/css" href="../css/default.css" />
-<link rel="stylesheet" type="text/css" href="../css/component.css" />
-
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- start-smoth-scrolling -->
 <script src="http://ajax.useso.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/move-top.js"></script>
@@ -72,7 +69,7 @@
                         <li><a href="rentHouse/rentHouse.jsp">租房</a></li>
                         <li><a href="redecorated/redecorated.jsp">装修</a></li>
                         <li><a href="comment/forum.jsp">论坛</a></li>
-                        <div class="clearfix"> </div>
+                        <%--<div class="clearfix"> </div>--%>
                     </ul>
                     <!-- script-for-menu -->
                     <script>
@@ -147,7 +144,7 @@
                 <p>欢迎购买</p>
             </div>
             <div class="services-bottom">
-                <!-- 商品循环开始 -->
+                <!-- 楼盘信息循环开始-只显示前六个房产 -->
                 <%
                     BuildingDao buildingdao = new BuildingDao();
                     ArrayList<Building> listB = buildingdao.getAllBuilding();

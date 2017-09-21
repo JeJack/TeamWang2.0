@@ -20,7 +20,7 @@ public class ContactUsDao {
         ArrayList<ContactUs> contactUses = new ArrayList<ContactUs>();
         try {
             conn = DBHelper.getConnection();
-            String sql = "select * from contactus;"; // SQL语句
+            String sql = "select * from contactus order by Ctime desc;"; // SQL语句
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()) {

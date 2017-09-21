@@ -128,11 +128,15 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                     <a href="#"><i class="fa fa-sitemap fa-3x"></i> 论坛管理<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="DeleteRemark.jsp">业主论坛</a>
+                            <a href="DeleteRemark.jsp">论坛</a>
                         </li>
                         <li>
-                            <a href="ReplyContact.jsp">装修论坛</a>
+                            <a href="ReplyContact.jsp">用户提交的问题</a>
                         </li>
+                        <li>
+                            <a href="UpdateFAQ.jsp">常见问题管理</a>
+                        </li>
+
 
                     </ul>
                 </li>
@@ -202,7 +206,14 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
             <%
                 }%>
             <br />
-
+            <%
+                if (session.getAttribute("Info")!=null){
+            %>
+            <p><%=session.getAttribute("Info")%></p>
+            <%
+                    session.removeAttribute("Info");
+                }
+            %>
         </div>
     </div>
 </div>

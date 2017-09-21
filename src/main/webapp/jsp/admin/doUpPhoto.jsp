@@ -81,7 +81,7 @@
                     rentHouseImage.setRentHouseId(session.getAttribute("rentHouseId").hashCode());
                     rentHouseImage.setRentHouseImageName("http://localhost:8080/Images/images/rentHouseImage/"+filepath);
                     rentHouseImageDao.createRentHouseImageInfoSql(rentHouseImage);
-                    String info1 = file.getFieldName()+"成功上传OO";
+                    String info1 = file.getFieldName()+"成功上传";
                     session.setAttribute("Info",info1);
 //                    session.setAttribute("Info",file.getFieldName()+"成功上传");
                     request.getRequestDispatcher("UpdatePhoto.jsp").forward(request,response);
@@ -122,17 +122,17 @@
         exceptionMsg = e.getMessage();
         e.printStackTrace();
     }
-    String address ="/farms"+filepath.substring(1);
-    System.out.println(address+" address");
+//    String address ="/farms"+filepath.substring(1);
+//    System.out.println(address+" address");
     request.setCharacterEncoding("utf-8");//处理中文
-    com.jspsmart.upload.Request req  = null;
-    req=su.getRequest();
+//    com.jspsmart.upload.Request req  = null;
+//    req=su.getRequest();
     //System.out.println(req+" ");
-    System.out.println(id);
-    String idcard = req.getParameter("idcard");
-    String name = req.getParameter("name");
-    String reson = req.getParameter("reson");
-    System.out.println(idcard+" "+name+" "+reson);
-    Boolean flag = false;
+//    System.out.println(id);
+//    String idcard = req.getParameter("idcard");
+//    String name = req.getParameter("name");
+//    String reson = req.getParameter("reson");
+//    System.out.println(idcard+" "+name+" "+reson);
+//    Boolean flag = false;
 
 %>

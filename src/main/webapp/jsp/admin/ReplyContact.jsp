@@ -149,12 +149,6 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
 
     <div id="page-wrapper" >
         <div id="page-inner">
-            <%--<div class="row">--%>
-                <%--<div class="col-md-12">--%>
-                    <%--<h2>删除论坛</h2>--%>
-                    <%--<p>需要先查看确认之后才能删除文章</p>--%>
-                <%--</div>--%>
-            <%--</div>--%>
             <div class="faqs clearfix">
                 <h2 style="text-align: center;color: #cb863b">用户提交的问题</h2>
                 <%
@@ -171,7 +165,7 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                     for (int i=0;contactUses!=null&&contactUses.size()>i;i++){
                         users = usersDao.getUsersById(contactUses.get(i).getUserId());
                 %>
-                <div style="margin:0 auto; width:1000px; border:1px solid #cbb1c5">
+                <div style="margin:0 auto; width:990px; border:1px solid #cbb1c5">
                     <article class="faq-item active">
                         <span class="faq-icon"></span>
                         <h3 class="faq-question">
@@ -183,7 +177,7 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <div class="faq-answer">
                             <p>内容：<%=contactUses.get(i).getFaq()%></p>
                         </div>
-                        <div class="faq-answer" style="text-align: right">
+                        <div class="faq-answer" style="text-align: left">
                             <%=contactUses.get(i).getCtime()%>
                         </div>
                         <br/>
@@ -197,7 +191,9 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                             <p><%=replyContactUs.getReply()%></p>
                         </div>
                         <div class="faq-answer">
-                            <p style="text-align: left;float: left">管理员：<%=replyContactUs.getAdminName()%></p><p style="text-align: right"><%=replyContactUs.getReplyTime()%></p>
+                            <p style="text-align: left;">管理员：<%=replyContactUs.getAdminName()%></p>
+                            <%--<p style="text-align: left;"><%=replyContactUs.getReplyTime()%></p>--%>
+                            <%=replyContactUs.getReplyTime()%>
                         </div>
 
                         <%}else{

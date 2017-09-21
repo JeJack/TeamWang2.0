@@ -132,6 +132,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                         <li>
                             <a href="ReplyContact.jsp">用户提交的问题</a>
                         </li>
+                        <li>
+                            <a href="UpdateFAQ.jsp">常见问题管理</a>
+                        </li>
+
 
                     </ul>
                 </li>
