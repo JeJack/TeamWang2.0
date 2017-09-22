@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-09-21 19:51:58
+Date: 2017-09-22 11:51:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -48,16 +48,7 @@ CREATE TABLE `buildingimage` (
 -- ----------------------------
 -- Records of buildingimage
 -- ----------------------------
-INSERT INTO `buildingimage` VALUES ('1', '1', 'http://localhost:8080/Images/images/buildingImages/g4.jpg');
-INSERT INTO `buildingimage` VALUES ('2', '1', 'http://localhost:8080/Images/images/buildingImages/g5.jpg');
 INSERT INTO `buildingimage` VALUES ('3', '2', 'http://localhost:8080/Images/images/buildingImages/g6.jpg');
-INSERT INTO `buildingimage` VALUES ('12', '1', 'http://localhost:8080/Images/images/buildingImages/g7.jpg');
-INSERT INTO `buildingimage` VALUES ('13', '1', 'http://localhost:8080/Images/images/buildingImages/g5.jpg');
-INSERT INTO `buildingimage` VALUES ('14', '1', 'http://localhost:8080/Images/images/buildingImages/g7.jpg');
-INSERT INTO `buildingimage` VALUES ('15', '1', 'http://localhost:8080/Images/images/buildingImages/g4.jpg');
-INSERT INTO `buildingimage` VALUES ('16', '1', 'http://localhost:8080/Images/images/buildingImages/g6.jpg');
-INSERT INTO `buildingimage` VALUES ('17', '1', 'http://localhost:8080/Images/images/buildingImages/g5.jpg');
-INSERT INTO `buildingimage` VALUES ('18', '1', 'http://localhost:8080/Images/images/buildingImages/g7.jpg');
 INSERT INTO `buildingimage` VALUES ('21', '20', 'http://localhost:8080/Images/images/buildingImages/1.png1jee.jpg');
 INSERT INTO `buildingimage` VALUES ('22', '20', 'http://localhost:8080/Images/images/buildingImages/2.jpg58jee.jpg');
 INSERT INTO `buildingimage` VALUES ('23', '21', 'http://localhost:8080/Images/images/buildingImages/1.jpg28jee.jpg');
@@ -138,7 +129,6 @@ CREATE TABLE `buildinginfo` (
 -- ----------------------------
 -- Records of buildinginfo
 -- ----------------------------
-INSERT INTO `buildinginfo` VALUES ('1', '天水嘉园', '昆明市呈贡区穿金路与铂金大道交汇处天水嘉园', '134', '3', '2', '1', '中层', '24', '7090', '昆明市', '呈贡区', '毛坯', '18487569632', '项目3公里范围内覆盖大型繁华商圈（中汇、北辰、同德商圈）相伴； 三甲医院（昆明市第一人民医院、533医院等明星医疗）为您的健康保驾护航；此外项目临近地铁2、5号线，规划地铁8号线经过铂金大道，物业价值有保障。 临近世博生态板块，金殿森林公园等生态资源环抱，奢享城市稀缺生态资源，周边土地权贵趋之若鹜，入则宁静，出则繁华。 项目占地350亩，自身打造12000㎡人工湖，洋房、别墅环湖而建，容积率仅2.03，绿地率53.31%，建筑密度19.15%，总户数2046户，涵盖洋房、别墅、商业手房', '2017-09-30', '2017-09-05 00:00:00', '项目享有四横四纵三地铁的立体交通网络，四横为铂金大道、北辰大道、北二环、沣源路。四纵为北京路、穿金路、白龙路、昆曲高速。三地铁为地铁2号线、 5号线和8号线。同时周边公共交通系统发达， 10路、47路、50路、182路、119路、142路、146路、91路等19条公交线路覆盖项目周边，交通极为便利。', '幼儿园：自带9班幼儿园、佳蒙·映象幼儿园\r\n中小学：明通小学、盘龙小学、金殿中学。\r\n综合商场：中汇、北辰、同德\r\n医院：解放军533医院、昆明第一人民医院甘美国际医院、盘龙区人民医院\r\n银行：菠萝村邮政支行 农业银行、交通银行、工商银行、红塔银行\r\n其他：世博生态园、金殿森林公园\r\n小区内部配套：幼儿园、健身设施、地下停车场', '项目3公里范围内覆盖大型繁华商圈（中汇、北辰、同德商圈）相伴； 三甲医院（昆明市第一人民医院、533医院等明星医疗）为您的健康保驾护航；此外项目临近地铁2、5号线，规划地铁8号线经过铂金大道，物业价值有保障。 临近世博生态板块，金殿森林公园等生态资源环抱，奢享城市稀缺生态资源，周边土地权贵趋之若鹜，入则宁静，出则繁华。 项目占地350亩，自身打造12000㎡人工湖，洋房、别墅环湖而建，容积率仅2.03，绿地率53.31%，建筑密度19.15%，总户数2046户，涵盖洋房、别墅、商业。', '53%', '2', '3', '天上物业', '500', '3000', 'building');
 INSERT INTO `buildinginfo` VALUES ('2', '天水嘉园', '昆明市呈贡区天水嘉园', '153', '3', '2', '2', '中层', '24', '6863', '昆明市', '呈贡区', '毛坯', '18555888855', '空气对流采光好，值得购买', '2017-09-30', '2017-09-05 00:00:00', '项目享有四横四纵三地铁的立体交通网络，四横为铂金大道、北辰大道、北二环、沣源路。四纵为北京路、穿金路、白龙路、昆曲高速。三地铁为地铁2号线、 5号线和8号线。同时周边公共交通系统发达， 10路、47路、50路、182路、119路、142路、146路、91路等19条公交线路覆盖项目周边，交通极为便利。', '幼儿园：自带9班幼儿园、佳蒙·映象幼儿园\r\n中小学：明通小学、盘龙小学、金殿中学。\r\n综合商场：中汇、北辰、同德\r\n医院：解放军533医院、昆明第一人民医院甘美国际医院、盘龙区人民医院\r\n银行：菠萝村邮政支行 农业银行、交通银行、工商银行、红塔银行\r\n其他：世博生态园、金殿森林公园\r\n小区内部配套：幼儿园、健身设施、地下停车场', '项目3公里范围内覆盖大型繁华商圈（中汇、北辰、同德商圈）相伴； 三甲医院（昆明市第一人民医院、533医院等明星医疗）为您的健康保驾护航；此外项目临近地铁2、5号线，规划地铁8号线经过铂金大道，物业价值有保障。 临近世博生态板块，金殿森林公园等生态资源环抱，奢享城市稀缺生态资源，周边土地权贵趋之若鹜，入则宁静，出则繁华。 项目占地350亩，自身打造12000㎡人工湖，洋房、别墅环湖而建，容积率仅2.03，绿地率53.31%，建筑密度19.15%，总户数2046户，涵盖洋房、别墅、商业。', '60%', '2', '4', '天堂物业', '1000', '2000', 'building');
 INSERT INTO `buildinginfo` VALUES ('20', '梁源小区兴隆花园二居', '西山区昆州路123号', '550000', '2', '1', '1', '低层', '6', '8023', '昆明', '西山区', '毛坯', '18456582150', '环境优美，背靠学区', '1993-01-01', '2017-09-21 09:05:01', '优良', '昆明小学，昆明中学，昆明大学', '本楼盘兴建于1993年，年代较为久远但是靠近学区，属于优质房源，适合家中有学生的家庭', '45%', '2.06', '120', '城建物业', '6895', '2000', 'building');
 INSERT INTO `buildinginfo` VALUES ('21', '保利大家', '五华区二环北路与普吉路交叉口西侧', '229776', '3', '1', '2', '低层', '18', '11000', '昆明', '五华区', '毛坯', '13954847845', '小区内部从幼儿园到大学，全龄教育体系，全面助力孩子成长。环绕项目打造40-80米绿色屏障。400米香樟林中轴景观长廊，在林荫蜿蜒中，呼吸甜蜜花香。', '2008-01-01', '2017-09-21 09:49:02', '地铁：项目处于4号线与7号线换乘点位置，项目周围分布7个地铁站点口，未来出行十分便捷，与此同时，地铁物业的升值潜力非凡。 公交：151路 153路 189路 1路 8路 8路专线 C10路 C1路 C3路 C68路 C69路（交通学院下）', '幼儿园：市第三幼儿园、第二幼儿园。中小学：师大附小、高新一小；师大附中、高新一中。大学：云南师范大学、理工大津桥学院。', '保利大家项目位于二环北路与普吉路交汇处，由保利集团开发。中国保利集团为中央企业，截至到2016年6月，保利集团总资产达6339.5亿元，列央企24位。', '38%', '4.00', '15', '云南保利物业服务有限公司', '7936', '2300', 'building');
@@ -162,11 +152,13 @@ CREATE TABLE `contactus` (
   `faq` varchar(255) NOT NULL,
   `Ctime` datetime NOT NULL,
   PRIMARY KEY (`contactUsId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of contactus
 -- ----------------------------
+INSERT INTO `contactus` VALUES ('1', '23', '第三方登录好丑', '希望你们解决这个问题，让这个网站更好用', '2017-09-22 08:40:56');
+INSERT INTO `contactus` VALUES ('2', '24', 'xiexie', '测试', '2017-09-22 09:00:28');
 
 -- ----------------------------
 -- Table structure for faq
@@ -200,7 +192,7 @@ CREATE TABLE `ownertopic` (
   `Category` varchar(255) DEFAULT NULL,
   `ownerTopicTime` datetime NOT NULL,
   PRIMARY KEY (`ownerTopicId`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ownertopic
@@ -226,6 +218,7 @@ INSERT INTO `ownertopic` VALUES ('41', '18', '装修实战|隔音', '<p>很多�
 INSERT INTO `ownertopic` VALUES ('42', '18', ' 装修心得体会', '1.混油门框收口－－－用白木、印尼白木或椴木；尽量不用松木。<br/>\r\n    2.家具能不做就尽量不做。<br/>\r\n    3.水路改造后要做防水，特别是开槽部分。<br/>\r\n    4.暖气尽量不用包，可用暖气罩。<br/>\r\n    5.窗套及亚口可不包。<br/>\r\n    6.非防水的腻子要铲掉，防水腻子不用。<br/>\r\n    7.买材料或电器够用。实用就行，不一定要追求名牌(除非您钞票多的放在床铺底下)。<br/>\r\n    8.最好在保洁做后再勾缝，不然缝隙会脏。<br/>\r\n    9.布线要事先想好，不然后续使用不顺手。<br/>\r\n    10.吊顶的龙骨要做防腐和防火。<br/>\r\n', 'redecorated', '2017-09-21 19:20:29');
 INSERT INTO `ownertopic` VALUES ('43', '18', '我的装修心得', '1.铺复合木地板需找平的话，要尽量早做，否则会拖延入住时间。<br/>\r\n    2.水路改造后要加压试验(特别是布暗线)，否则睡觉都不安稳。<br/>\r\n    3.布线中间尽量不要接头，否则时间长，容易接触不良。<br/>\r\n    4.电线布线时要注意，有的缺德少了根地线(全包者更容易发生)，且接线时火线、零线与插座尽量接对；电线最好用不同颜色区别(如火线用红色等)，这样便于接线和日后维护。<br/>\r\n    5.吊顶的射灯处温度很高，要注意周围是否有易燃物品。<br/>\r\n    6.买瓷砖最好到七里庄，据说价格便宜不少。<br/>\r\n    7.座便最好买喷射式吸虹，据说声音相对较小且冲得干净(未考证不知对否)<br/>\r\n    8.座便安装不要用水泥包着，据说日后不好维护<br/>\r\n    9.铝扣板吊顶尽量用专用木龙骨(不知什么样子)<br/>\r\n    10.非沉重墙防裂处理据说用牛皮纸比的确良布好<br/>', 'redecorated', '2017-09-21 19:20:46');
 INSERT INTO `ownertopic` VALUES ('44', '18', '装修过来人的收获', '1. 铺完波化砖后，一定要做好保护措施，否则不小心会给您意外的“惊喜”。<br/>\r\n    2. 网络、电话、有线等布线完毕后，最好事先测试一下，否则届时不通干着急，纵然您有火眼金星也没咋。<br/>\r\n    3. 调瓷砖时如对颜色较在意者，一定要在自然光下看颜色，否则买回后您恨不得把它砸掉。<br/>\r\n    4. 买木地板验货时，要每箱清点数量，否则有些JS会缺斤少两、偷梁换柱。<br/>\r\n    5. 包立管尽量不用水泥板，用砖。(原因请DX指点)。<br/>\r\n    6. 墙为内保温的话，地吸尽量安在地上，据说安在墙上容易拉坏。<br/>\r\n    7. 针对有造型或设计时您有特别要求的地方，在施工开始时，一定要让设计师跟施工人员说清楚，否则有可能三不像。<br/>\r\n    8. 在与装修公司或装修队商谈最终价格时，建议采用折扣方式，并且要明定增加部分的价格也按此折扣算(当然要防止其报高价)；尽量不用一刀切谈价，防止他们经常用的一招“底开高走”。<br/>\r\n    9. 在购买各种材料时，如同时在同一家店买不同东西时，千万注意不要顾此失疲，丢了西瓜拣芝麻。<br/>\r\n    10. 购买东西，尽量要开正式发票，以便退货、索赔等等，有用的很。<br/>', 'redecorated', '2017-09-21 19:21:05');
+INSERT INTO `ownertopic` VALUES ('45', '22', '美好的一天', '今天真的很好！！！！！！！！！！！！', 'owner', '2017-09-22 08:36:27');
 
 -- ----------------------------
 -- Table structure for ownertopiccomment
@@ -238,7 +231,7 @@ CREATE TABLE `ownertopiccomment` (
   `comment` varchar(255) NOT NULL,
   `commentTime` datetime NOT NULL,
   PRIMARY KEY (`ownerTopicCommentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of ownertopiccomment
@@ -247,6 +240,7 @@ INSERT INTO `ownertopiccomment` VALUES ('18', '18', '24', '盘龙江景本就美
 INSERT INTO `ownertopiccomment` VALUES ('19', '19', '24', '快来云大玩啊！！！', '2017-09-21 15:52:31');
 INSERT INTO `ownertopiccomment` VALUES ('20', '18', '25', '当你觉得孤独无助时，想一想还有十几亿的细胞只为了你一个人而活。', '2017-09-21 16:45:56');
 INSERT INTO `ownertopiccomment` VALUES ('21', '18', '33', '世界如此广阔，人类却走进了悲伤的墙角。', '2017-09-21 16:47:37');
+INSERT INTO `ownertopiccomment` VALUES ('22', '22', '24', '快来我们项目组', '2017-09-22 08:35:38');
 
 -- ----------------------------
 -- Table structure for redecoratedinfo
@@ -263,7 +257,7 @@ CREATE TABLE `redecoratedinfo` (
   `redecoratedDescribe` text NOT NULL,
   `redecoratedCategory` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`redecoratedId`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of redecoratedinfo
@@ -294,6 +288,8 @@ INSERT INTO `redecoratedinfo` VALUES ('51', '卫浴', '田园', '61-90平米', '
 INSERT INTO `redecoratedinfo` VALUES ('52', '卫浴', '现代', '41-60平米', '50000', 'http://localhost:8080/Images/images/redecoratedImage/现代卫浴.jpg99jee.jpg', '15984562856', '简约风格以简洁的表现形式来满足人们对空间环境那种感性的、本能的和理性的需求，这是当今国际社会流行的设计风格——简洁明快的简约主义。简约主义是由上个世纪80年代中期对复古风潮的叛逆和极简美学的基础上发展起来的，90年代初期，开始融入室内设计领域。', 'redecorated');
 INSERT INTO `redecoratedinfo` VALUES ('53', '厨房', '现代', '61-90平米', '80000', 'http://localhost:8080/Images/images/redecoratedImage/现代厨房.jpg32jee.jpg', '18485965236', '特征现代简约装修风格——核心是功能第一，在造型和设计上提倡简约。　　一方面，它强调含蓄，提倡以少胜多，尽可能地把设计的元素、色彩、照明、原材料简化到最少。黑、白或灰是常用的色彩计划，比较少采用装饰图案。另一方面，它追求色彩与材料的高质感，通过对材料的严格控制，避免简约沦为简单的设计。尤其是在家具产品的选择上，必须是与室内整体环境协调的简约设计。', 'redecorated');
 INSERT INTO `redecoratedinfo` VALUES ('54', '厨房', '中式', '91-120平米', '90000', 'http://localhost:8080/Images/images/redecoratedImage/中式厨房.jpg33jee.jpg', '15848562593', '\r\n中式简约装修风格通过家居自然简约的风格令整个家居环境变得轻松纯粹,兼具现代与古典的装修元素.简约自然的中式装修风格是现如今很多家庭都比较喜欢的,那么大家了解吗?下面我们就一起从下文中了解一下吧.一、中式与简约的兼有 中式简约装修风格整体兼有传统中式风格和现代简约风格之间,不会有中式那种沉闷,也不会有简约那种飘逸.沉稳大方是,不奢华,又不失品味.\r\n', 'redecorated');
+INSERT INTO `redecoratedinfo` VALUES ('55', '客厅', '美式', '61-90平米', '100000', 'http://localhost:8080/Images/images/redecoratedImage/美式客厅4.jpg2jee.jpg', '18487219573', '很美丽的客厅，你很值得拥有', 'redecorated');
+INSERT INTO `redecoratedinfo` VALUES ('56', '卧室', '田园', '61-90平米', '100000', 'http://localhost:8080/Images/images/redecoratedImage/简约卧室.jpg98jee.jpg', '18487219573', '测试', 'redecorated');
 
 -- ----------------------------
 -- Table structure for renthouseimage
@@ -309,8 +305,6 @@ CREATE TABLE `renthouseimage` (
 -- ----------------------------
 -- Records of renthouseimage
 -- ----------------------------
-INSERT INTO `renthouseimage` VALUES ('1', '1', 'http://localhost:8080/Images/images/rentHouseImage/g2.jpg');
-INSERT INTO `renthouseimage` VALUES ('2', '1', 'http://localhost:8080/Images/images/rentHouseImage/g3.jpg');
 INSERT INTO `renthouseimage` VALUES ('3', '2', 'http://localhost:8080/Images/images/rentHouseImage/g4.jpg');
 INSERT INTO `renthouseimage` VALUES ('19', '33', 'http://localhost:8080/Images/images/rentHouseImage/1.jpg10jee.jpg');
 INSERT INTO `renthouseimage` VALUES ('20', '33', 'http://localhost:8080/Images/images/rentHouseImage/1.1.jpg41jee.jpg');
@@ -374,7 +368,6 @@ CREATE TABLE `renthouseinfo` (
 -- ----------------------------
 -- Records of renthouseinfo
 -- ----------------------------
-INSERT INTO `renthouseinfo` VALUES ('1', '天水嘉园', '昆明市呈贡区天水嘉园', '134', '1995-2-10', '3', '2', '1', '中层', '24', '1200', '昆明市', '呈贡区', '2017-09-05 09:34:44', '毛坯', '18487569632', '买到就是赚到啊，最爽的二手房', 'renthouse');
 INSERT INTO `renthouseinfo` VALUES ('2', '天水嘉园', '昆明市呈贡区天水嘉园', '153', '1995-2-10', '3', '2', '2', '中层', '24', '1200', '昆明市', '呈贡区', '2017-09-05 09:43:39', '毛坯', '18555888855', '空气对流采光好，值得购买', 'renthouse');
 INSERT INTO `renthouseinfo` VALUES ('33', '急租 润城二区2房 西南向 空房出租-整租', '前卫西路668号', '84', '2014-06-04', '3', '1', '1', '高层', '32', '1900', '昆明', '西山区', '2017-09-21 11:02:36', '精装修', '18454621583', '住宅 | 2室2厅1卫 | 84㎡ |(高层)/共32层 |西南 |精装修', 'renthouse');
 INSERT INTO `renthouseinfo` VALUES ('34', '润城二区 3房 精装修 带全套家具家电出租 -整租', '前卫西路668号', '90', '2017-09-09', '3', '2', '1', '低层', '34', '2500', '昆明', '西山区', '2017-09-21 11:09:49', '精装修', '18487264936', '住宅 | 3室2厅1卫 | 90㎡ |(低层)/共34层 |东北 |精装修', 'renthouse');
@@ -398,11 +391,13 @@ CREATE TABLE `replycontactus` (
   `reply` varchar(255) DEFAULT NULL,
   `replyTime` datetime DEFAULT NULL,
   PRIMARY KEY (`replyContactUsId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of replycontactus
 -- ----------------------------
+INSERT INTO `replycontactus` VALUES ('1', 'Jee', '2', '测试', '2017-09-22 09:03:18');
+INSERT INTO `replycontactus` VALUES ('2', 'Jee', '1', '好的，谢谢', '2017-09-22 09:03:29');
 
 -- ----------------------------
 -- Table structure for userapply
@@ -432,11 +427,16 @@ CREATE TABLE `usercollection` (
   `collectionCategory` varchar(20) NOT NULL,
   `collectionCategoryId` int(11) NOT NULL,
   PRIMARY KEY (`userCollectionId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of usercollection
 -- ----------------------------
+INSERT INTO `usercollection` VALUES ('1', '18', 'building', '23');
+INSERT INTO `usercollection` VALUES ('2', '18', 'renthouse', '34');
+INSERT INTO `usercollection` VALUES ('3', '22', 'building', '25');
+INSERT INTO `usercollection` VALUES ('4', '22', 'renthouse', '2');
+INSERT INTO `usercollection` VALUES ('5', '22', 'redecorated', '32');
 
 -- ----------------------------
 -- Table structure for userinfo
@@ -452,12 +452,14 @@ CREATE TABLE `userinfo` (
   `userPhoneNum` varchar(50) DEFAULT NULL,
   `userPhoto` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of userinfo
 -- ----------------------------
 INSERT INTO `userinfo` VALUES ('18', 'Jee', '花南渊海', '1230', '男', 'qiujeer@163.com', '18487219573', 'http://localhost:8080/Images/images/userPhoto/logo.jpg52jee.jpg');
 INSERT INTO `userinfo` VALUES ('19', 'YNU', '哈哈大学', '0000', '男', '123@123.com', '18487219533', 'http://localhost:8080/Images/images/userPhoto/logo (2).jpg19jee.jpg');
-INSERT INTO `userinfo` VALUES ('20', '1464952090@qq.com', null, '1464952090@qq.com', null, '1464952090@qq.com', null, null);
-INSERT INTO `userinfo` VALUES ('21', '1464952090@qq.com', null, '1464952090@qq.com', null, '1464952090@qq.com', null, null);
+INSERT INTO `userinfo` VALUES ('22', 'wcf', null, '0000', null, null, '18487544565', null);
+INSERT INTO `userinfo` VALUES ('24', '1464952090@qq.com', 'huahua', '1464952090@qq.com', '男', '1464952090@qq.com', null, null);
+INSERT INTO `userinfo` VALUES ('25', 'qiujeer@163.com', null, 'qiujeer@163.com', null, 'qiujeer@163.com', null, 'http://localhost:8080/Images/images/userPhoto/简约卧室.jpg44jee.jpg');
+INSERT INTO `userinfo` VALUES ('26', 'qiujeer@163.com', null, 'qiujeer@163.com', null, 'qiujeer@163.com', null, null);
