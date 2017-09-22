@@ -205,10 +205,10 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                 </thead>
                 <tbody>
                 <tr>
-                    <td>id</td>
-                    <td>Tanmay</td>
-                    <td>Bangalore</td>
-                    <td>1031098@qq.com</td>
+                    <td>null</td>
+                    <td>null</td>
+                    <td>null</td>
+                    <td>null</td>
                 </tr>
 
                 </tbody>

@@ -169,7 +169,14 @@ font-size: 16px;"> <a href="../DoOperation/doAnminOut.jsp" class="btn btn-danger
                     <article class="faq-item active">
                         <span class="faq-icon"></span>
                         <h3 class="faq-question">
+                            <%if (users!=null){
+                            %>
                             <p>用户名：<%=users.getUserName()%></p>
+                            <%
+                            }else{
+                                %> <p>用户名：null</p><%
+                            }%>
+
                         </h3>
                         <h3 class="faq-question">
                             <p>主题：<%=contactUses.get(i).getTheme()%></p>
