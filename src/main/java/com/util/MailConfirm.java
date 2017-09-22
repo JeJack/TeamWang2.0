@@ -16,8 +16,8 @@ import java.util.Random;
  */
 public class MailConfirm {
     private String [] code;
-    private String Account = "2049342955@qq.com";
-    private String PassWord = "dfldximcmaadecea";
+    private String Account = "1464952090@qq.com";
+    private String PassWord = "aspalxlgzxokjhfd";
     public static String myEmailSMTPHost = "smtp.qq.com";
     public String icode;
 
@@ -77,7 +77,7 @@ public class MailConfirm {
         message.setSubject("登录邮箱验证", "UTF-8");
 
         // 5. Content: 邮件正文（可以使用html标签）
-        message.setContent("您的验证码为:"+icode, "text/html;charset=UTF-8");
+        message.setContent("欢迎来到优购房，您的验证码为:"+icode, "text/html;charset=UTF-8");
 
         // 6. 设置发件时间
         message.setSentDate(new Date());
@@ -92,7 +92,7 @@ public class MailConfirm {
         MailConfirm mailConfirm = new MailConfirm();
         
         try {
-            mailConfirm.sendMail("568792513@qq.com");
+            mailConfirm.sendMail("qiujeer@163.com");
             System.out.println(mailConfirm.icode);
         } catch (Exception e) {
             e.printStackTrace();
